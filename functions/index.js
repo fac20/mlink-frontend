@@ -1,38 +1,38 @@
-const functions = require('firebase-functions');
+import { https } from "firebase-functions";
 
-var admin = require('firebase-admin');
-var serviceAccount = require('./config.json');
+import { initializeApp, credential as _credential, auth } from "firebase-admin";
+import serviceAccount from "./config.json";
 
-exports.hasuraWebhook = functions.https.onRequest((request, response) => {
+export const hasuraWebhook = https.onRequest((request, response) => {
   var error = null;
 
   if (serviceAccount) {
     try {
-      admin.initializeApp({
-        credential: admin.credential.cert(serviceAccount),
+      initializeApp({
+        credential: _credential.cert(serviceAccount),
       });
     } catch (e) {
+      // eslint-disable-next-line no-unused-vars
       error = e;
     }
   }
 
-  var authHeaders = request.get('Authorization');
+  var authHeaders = request.get("Authorization");
   // Send anonymous role if there are no auth headers
   if (!authHeaders) {
-    response.json({ 'x-hasura-role': 'anonymous' });
+    response.json({ "x-hasura-role": "anonymous" });
     return;
   } else {
     // Validate the received id_tokenolp;
     var idToken = extractToken(authHeaders);
     console.log(idToken);
-    admin
-      .auth()
+    auth()
       .verifyIdToken(idToken)
       .then((decodedToken) => {
-        console.log('decodedToken', decodedToken);
+        console.log("decodedToken", decodedToken);
         var hasuraVariables = {
-          'X-Hasura-User-Id': decodedToken.uid,
-          'X-Hasura-Role': 'user',
+          "X-Hasura-User-Id": decodedToken.uid,
+          "X-Hasura-Role": "user",
         };
         console.log(hasuraVariables); // For debug
         // Send appropriate variables
@@ -42,7 +42,7 @@ exports.hasuraWebhook = functions.https.onRequest((request, response) => {
       .catch((e) => {
         // Throw authentication error
         console.log(e);
-        response.json({ 'x-hasura-role': 'anonymous' });
+        response.json({ "x-hasura-role": "anonymous" });
       });
   }
 });
