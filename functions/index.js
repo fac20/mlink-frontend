@@ -9,7 +9,7 @@ exports.hasuraWebhook = functions.https.onRequest((request, response) => {
   if (serviceAccount) {
     try {
       admin.initializeApp({
-        credential: admin.credential.cert(serviceAccount)
+        credential: admin.credential.cert(serviceAccount),
       });
     } catch (e) {
       error = e;
@@ -19,29 +19,31 @@ exports.hasuraWebhook = functions.https.onRequest((request, response) => {
   var authHeaders = request.get('Authorization');
   // Send anonymous role if there are no auth headers
   if (!authHeaders) {
-    response.json({'x-hasura-role': 'anonymous'});
+    response.json({ 'x-hasura-role': 'anonymous' });
     return;
   } else {
     // Validate the received id_tokenolp;
     var idToken = extractToken(authHeaders);
     console.log(idToken);
-    admin.auth().verifyIdToken(idToken)
-    .then((decodedToken) => {
-      console.log('decodedToken', decodedToken);
-      var hasuraVariables = {
-        'X-Hasura-User-Id': decodedToken.uid,
-        'X-Hasura-Role': 'user'
-      };
-      console.log(hasuraVariables); // For debug
-      // Send appropriate variables
-      response.json(hasuraVariables);
-      return;
-    })
-    .catch((e) => {
-      // Throw authentication error
-      console.log(e);
-      response.json({'x-hasura-role': 'anonymous'});
-    });
+    admin
+      .auth()
+      .verifyIdToken(idToken)
+      .then((decodedToken) => {
+        console.log('decodedToken', decodedToken);
+        var hasuraVariables = {
+          'X-Hasura-User-Id': decodedToken.uid,
+          'X-Hasura-Role': 'user',
+        };
+        console.log(hasuraVariables); // For debug
+        // Send appropriate variables
+        response.json(hasuraVariables);
+        return;
+      })
+      .catch((e) => {
+        // Throw authentication error
+        console.log(e);
+        response.json({ 'x-hasura-role': 'anonymous' });
+      });
   }
 });
 
@@ -52,4 +54,4 @@ const extractToken = (bearerToken) => {
     return match[2];
   }
   return null;
-}
+};
