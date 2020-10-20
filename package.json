@@ -46,7 +46,6 @@
 		"prettier": "^2.1.2"
 	},
 	"lint-staged": {
-		"*.{js,jsx}": "npm run lint",
 		"*.{js,jsx,json,ts,tsx,md,html,css,sass,yml,scss,md,graphql}": [
 			"npm run lint",
 			"npm run prettier",
