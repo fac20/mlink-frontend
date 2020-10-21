@@ -45,6 +45,11 @@
     "lint-staged": "^10.4.2",
     "prettier": "^2.1.2"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit"
+    }
+  },
   "lint-staged": {
     "*.{js,jsx,json,ts,tsx,md,html,css,sass,yml,scss,md,graphql}": [
       "npm run lint",
