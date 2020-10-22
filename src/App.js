@@ -1,26 +1,54 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+  useLocation,
+  useHistory
+} from "react-router-dom";
 
-function App() {
+import Profile from "./components/Profile/Profile";
+import Dashboard from "./components/Dashboard/Dashboard";
+import Network from "./components/Network/Network";
+import Onboarding from "./components/Onboarding/Onboarding";
+import EditProfile from "./components/Profile/EditProfile";
+import Requests from "./components/Requests/Requests";
+import Signup from "./components/SignupLogin/Signup";
+import Login from "./components/SignupLogin/Login";
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <main>
+        <Switch>
+          <Route path="/" exact>
+            <Onboarding />
+          </Route>
+          <Route path="/network" exact>
+            <Network />
+          </Route>
+          <Route path="/dashboard" exact>
+            <Dashboard />
+          </Route>
+          <Route path="/profile/:name" exact>
+            <Profile />
+          </Route>
+          <Route path="/edit-profile" exact>
+            <EditProfile />
+          </Route>
+          <Route path="/requests" exact>
+            <Requests />
+          </Route>
+          <Route path="/signup" exact>
+            <Signup />
+          </Route>
+          <Route path="/login" exact>
+            <Login />
+          </Route>
+        </Switch>
+      </main>
+    </Router>
   );
 }
-
-export default App;
