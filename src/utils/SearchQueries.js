@@ -6,6 +6,7 @@
 
 // Imported as query to App.js
 export default (input) => {
+  input = `%${input}%`;
   const variables = { input: input };
   const query = `
     query SearchByName($input: String!) {
