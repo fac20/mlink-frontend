@@ -3,6 +3,8 @@
 // return all profiles which contain the inputted string in their name
 // specialty
 // medical school
+
+// Imported as query to App.js
 export default (input) => {
   const variables = { input: input };
   const query = `
