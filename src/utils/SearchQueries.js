@@ -3,34 +3,32 @@
 // return all profiles which contain the inputted string in their name
 // specialty
 // medical school
+export default (input) => {
+  const variables = { input: input };
+  const query = `
+    query SearchByName($input: String!) {
+      users(where: {full_name: {_ilike: $input}}) {
+        bio
+        email
+      }
+    }`;
 
-const userSearchQuery = `
-query SearchByName($user_input: String!){
-    {
-        users {
-            full_name(
-                where: { full_name: {_ilike: "%$user_input%"}})
-        }
-    }
-}`;
-
-export default (user_input) => {
-  const url = "https://tfb-mlink.herokuapp.com/v1/graphql";
-  const options = {
+  fetch("https://tfb-mlink.herokuapp.com/v1/graphql", {
     method: "POST",
     headers: {
-      "Content-type": "application/json",
-      "x-hasura-admin-secret": "secretKey",
-      variables: { user_input }
+      "content-type": "application/json",
+      "x-hasura-admin-secret": "secretKey"
     },
-    body: JSON.stringify({ userSearchQuery, user_input })
-  };
-
-  fetch(url, options)
+    body: JSON.stringify({ query, variables })
+  })
     .then((response) => {
       if (!response.ok) throw new Error("Request failed");
       return response.json();
     })
-    .then(console.log)
-    .catch(console.error);
+    .then((json) => {
+      console.log(json);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 };

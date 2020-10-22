@@ -18,33 +18,11 @@ import Dashboard from "./components/Dashboard/Dashboard";
 // import Signup from "./components/SignupLogin/Signup";
 // import Login from "./components/SignupLogin/Login";
 import query from "./utils/SearchQueries";
+
 export default function App() {
   React.useEffect(() => {
-    const user_input = "Jane";
-    const userSearchQuery = `
-    {
-      users(where: {full_name: {_ilike: "%e%"}}) {
-        bio
-        email
-      }
-    }`;
-    const url = "https://tfb-mlink.herokuapp.com/v1/graphql";
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-        "x-hasura-admin-secret": "secretKey"
-      },
-      body: JSON.stringify({ userSearchQuery })
-    };
-
-    fetch(url, options)
-      .then((response) => {
-        if (!response.ok) throw new Error("Request failed");
-        return response.json();
-      })
-      .then((res) => console.log(res))
-      .catch(console.error);
+    const input = "%Doe%";
+    query(input);
   }, []);
 
   return (
