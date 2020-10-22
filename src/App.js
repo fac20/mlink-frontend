@@ -9,10 +9,10 @@ import {
   useHistory
 } from "react-router-dom";
 
-import Profile from "./components/Profile/Profile";
-import Dashboard from "./components/Dashboard/Dashboard";
+// import Profile from "./components/Profile/Profile";
+// import Dashboard from "./components/Dashboard/Dashboard";
 // import Network from "./components/Network/Network";
-// import Onboarding from "./components/Onboarding/Onboarding";
+import Onboarding from "./components/Onboarding/Onboarding.jsx";
 // import EditProfile from "./components/Profile/EditProfile";
 // import Requests from "./components/Requests/Requests";
 // import Signup from "./components/SignupLogin/Signup";
@@ -29,9 +29,9 @@ export default function App() {
     <Router>
       <main>
         <Switch>
-          {/* <Route path="/" exact>
+          <Route path="/" exact>
             <Onboarding />
-          </Route> */}
+          </Route>
           {/* <Route path="/network" exact>
             <Network />
           </Route> */}
