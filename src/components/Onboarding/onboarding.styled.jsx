@@ -9,8 +9,8 @@ export default getStartedBtn = button.styled`
     left: 128.09px;
     top: 549.42px;
 
-font-family: Poppins;
-font-style: normal;
+    font-family: Poppins;
+    font-style: normal;
     font-weight: 500;
     font-size: 19px;
     line-height: 28px;

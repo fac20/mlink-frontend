@@ -22,23 +22,20 @@ export default function App() {
   React.useEffect(() => {
     const user_input = "Jane";
     const userSearchQuery = `
-          query SearchByName($user_input: String!){
-              {
-                  users {
-                      full_name(
-                          where: { full_name: {_ilike: "%$user_input%"}})
-                  }
-              }
-          }`;
+    {
+      users(where: {full_name: {_ilike: "%e%"}}) {
+        bio
+        email
+      }
+    }`;
     const url = "https://tfb-mlink.herokuapp.com/v1/graphql";
     const options = {
       method: "POST",
       headers: {
         "Content-type": "application/json",
-        "x-hasura-admin-secret": "secretKey",
-        variables: { user_input }
+        "x-hasura-admin-secret": "secretKey"
       },
-      body: JSON.stringify({ userSearchQuery, user_input })
+      body: JSON.stringify({ userSearchQuery })
     };
 
     fetch(url, options)
@@ -46,7 +43,7 @@ export default function App() {
         if (!response.ok) throw new Error("Request failed");
         return response.json();
       })
-      .then(console.log)
+      .then((res) => console.log(res))
       .catch(console.error);
   }, []);
 
