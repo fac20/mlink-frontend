@@ -17,35 +17,13 @@ import Onboarding from "./components/Onboarding/Onboarding.jsx";
 // import Requests from "./components/Requests/Requests";
 // import Signup from "./components/SignupLogin/Signup";
 // import Login from "./components/SignupLogin/Login";
-// import query from "./utils/SearchQueries";
-export default function App() {
-  //   React.useEffect(() => {
-  //     const user_input = "Jane";
-  //     const userSearchQuery = `
-  //     {
-  //       users(where: {full_name: {_ilike: "%e%"}}) {
-  //         bio
-  //         email
-  //       }
-  //     }`;
-  //     const url = "https://tfb-mlink.herokuapp.com/v1/graphql";
-  //     const options = {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-type": "application/json",
-  //         "x-hasura-admin-secret": "secretKey"
-  //       },
-  //       body: JSON.stringify({ userSearchQuery })
-  //     };
+import query from "./utils/SearchQueries";
 
-  //     fetch(url, options)
-  //       .then((response) => {
-  //         if (!response.ok) throw new Error("Request failed");
-  //         return response.json();
-  //       })
-  //       .then((res) => console.log(res))
-  //       .catch(console.error);
-  //   }, []);
+export default function App() {
+  React.useEffect(() => {
+    const input = "%Doe%";
+    query(input);
+  }, []);
 
   return (
     <Router>
