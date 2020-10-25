@@ -38,7 +38,8 @@ jobs:
   #         command: npm test -- --coverage --watchAll=false
   #     - codecov/upload:
   #         file: './coverage/clover.xml'
-  #         token: ${CODECOV_TOKEN}workflows:
+  #         token: ${CODECOV_TOKEN}
+workflows:
   push:
     jobs:
       - installation
