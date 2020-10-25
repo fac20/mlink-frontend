@@ -23,8 +23,10 @@ jobs:
           paths:
             - ~/project/node_modules
       - run:
-          name: run tests
-          command: npm run test
+          name: run tests and generate coverage
+          command: npm run cov
+      - codecov/upload:
+          file: "./coverage/clover.xml"
   # Coverage:
   #   docker:
   #     - image: circleci/node:14.5.0
