@@ -44,5 +44,3 @@ workflows:
   push:
     jobs:
       - installation
-      - coverage:
-          requires: installation
