@@ -4,12 +4,12 @@ orbs:
 jobs:
   installation:
     docker:
-      - image: cimg/node:latest
+      - image: "cimg/node:latest"
     steps:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package-lock.json" }}
+            - 'v1-dependencies-{{ checksum "package-lock.json" }}'
             - v1-deps-
       - run:
           name: Install Dependencies
@@ -19,16 +19,15 @@ jobs:
           paths:
             - project
       - save_cache:
-          key: v1-dependencies-{{ checksum "package-lock.json" }}
+          key: 'v1-dependencies-{{ checksum "package-lock.json" }}'
           paths:
             - ~/project/node_modules
       - run:
           name: run tests
           command: npm run test
-
   Coverage:
     docker:
-      - image: circleci/node:14.5.0
+      - image: "circleci/node:14.5.0"
     steps:
       - attach_workspace:
           at: ~/
@@ -36,24 +35,11 @@ jobs:
           name: Run tests and generate coverage report
           command: npm test -- --coverage --watchAll=false
       - codecov/upload:
-          file: './coverage/clover.xml'
-          token: ${CODECOV_TOKEN}
-      comment:
-        layout: "reach, diff, flags, files"
-        behavior: default
-        require_changes: false  # if true: only post the comment if coverage changes
-        require_base: no        # [yes :: must have a base report to post]
-        require_head: yes       # [yes :: must have a head report to post]
-        branches:               # branch names that can post comment
-          - "master"
-      wait_for_ci_to_pass: false
-
-      
+          file: ./coverage/clover.xml
+          token: "${CODECOV_TOKEN}"
 workflows:
   push:
     jobs:
       - installation
       - coverage:
-          requires:
-            installation
-            
+          requires: installation
