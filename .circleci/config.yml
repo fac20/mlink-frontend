@@ -24,9 +24,11 @@ jobs:
             - ~/project/node_modules
       - run:
           name: run tests and generate coverage
-          command: npm run cov
+          command: npm test -- --coverage --watchAll=false
       - codecov/upload:
           file: "./coverage/clover.xml"
+          token: ${CODECOV_TOKEN}
+
   # Coverage:
   #   docker:
   #     - image: circleci/node:14.5.0
@@ -38,7 +40,6 @@ jobs:
   #         command: npm test -- --coverage --watchAll=false
   #     - codecov/upload:
   #         file: './coverage/clover.xml'
-  #         token: ${CODECOV_TOKEN}
 workflows:
   push:
     jobs:
