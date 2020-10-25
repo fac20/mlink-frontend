@@ -4,7 +4,7 @@ orbs:
 jobs:
   installation:
     docker:
-      - image: cimg/node:latest
+      - image: circleci/node:14.5.0
     steps:
       - checkout
       - restore_cache:
