@@ -1,13 +1,10 @@
 import React from "react";
-import {
-  GetStartedBtn,
-  Title,
-  PageWrapper
-} from "../Onboarding/Onboarding.styles";
+import { GetStartedBtn, Title, PageWrapper } from "../Onboarding/Onboarding.styles";
 import queryHelpers from "../../utils/queryHelper";
 
 function ProfileSetup() {
   const [jobTitles, setJobTitles] = React.useState([]);
+  const [medical_schools, setMedicalSchools] = React.useState([]);
 
   React.useEffect(() => {
     //query to get the jobtitles back (found through the hasura console)
@@ -21,6 +18,18 @@ function ProfileSetup() {
     function extractJobTitles(json) {
       setJobTitles(json.data.job_titles);
     }
+
+    const medicalSchoolsQuery = `query allMedicalSchools {
+    medical_schools {
+      medical_school
+    }
+    }`;
+
+    function extractMedicalSchools(json) {
+      setMedicalSchools(json.data.medical_schools);
+    }
+
+    const result = queryHelpers(medicalSchoolsQuery, {}, extractMedicalSchools);
 
     queryHelpers(jobTitlesQuery, {}, extractJobTitles);
 
@@ -48,14 +57,7 @@ function ProfileSetup() {
 
         <label htmlFor="name">Full Name</label>
         <br />
-        <input
-          id="name"
-          name="name"
-          type="text"
-          placeholder="Type your name"
-          value=""
-          required
-        />
+        <input id="name" name="name" type="text" placeholder="Type your name" value="" required />
         <br />
 
         <label htmlFor="current_job">Current job title</label>
@@ -69,7 +71,11 @@ function ProfileSetup() {
 
         <label htmlFor="school">Medical School</label>
         <br />
-        <select id="school" name="school" required></select>
+        <select id="school" name="school" required>
+          {medical_schools.map((x) => {
+            return <option> {x.medical_school}</option>;
+          })}
+        </select>
         <br />
 
         <label htmlFor="specialty">Specialty</label>
