@@ -24,7 +24,17 @@ jobs:
             - ~/project/node_modules
       - run:
           name: run tests and generate coverage
-          command: npm test -- --coverage --watchAll=false
+          command:
+            - npm test -- --coverage --watchAll=false
+            - bash <(curl -s https://codecov.io/bash) -cF javascript
+            - comment:
+                layout: "diff"
+                behavior: default
+                require_changes: false # if true: only post the comment if coverage changes
+                require_base: no # [yes :: must have a base report to post]
+                require_head: yes # [yes :: must have a head report to post]
+                branches: # branch names that can post comment
+                  - "main"
       - codecov/upload:
           file: "./coverage/clover.xml"
           token: ${CODECOV_TOKEN}
