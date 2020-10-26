@@ -13,6 +13,7 @@ import {
 // import Dashboard from "./components/Dashboard/Dashboard";
 // import Network from "./components/Network/Network";
 import Onboarding from "./components/Onboarding/Onboarding.jsx";
+import ProfileSetup from "./components/Profile/ProfileSetup.jsx";
 // import EditProfile from "./components/Profile/EditProfile";
 // import Requests from "./components/Requests/Requests";
 // import Signup from "./components/SignupLogin/Signup";
@@ -31,6 +32,9 @@ export default function App() {
         <Switch>
           <Route path="/" exact>
             <Onboarding />
+          </Route>
+          <Route path="/setup" exact>
+            <ProfileSetup />
           </Route>
           {/* <Route path="/network" exact>
             <Network />
