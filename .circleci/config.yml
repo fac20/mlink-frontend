@@ -27,7 +27,7 @@ jobs:
           command: npm test -- --coverage --watchAll=false
       - run:
           name: coverage report
-          command: jest --ci --coverage && codecov
+          command: npm run jest --ci --coverage && codecov
       - codecov/upload:
           file: "./coverage/clover.xml"
           token: d5e4b315-e50d-4c4a-bfe0-7d1f91e9c797
