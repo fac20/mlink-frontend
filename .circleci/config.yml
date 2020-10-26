@@ -26,10 +26,6 @@ jobs:
           name: run tests and generate coverage
           command:
             - npm test -- --coverage --watchAll=false
-      - run:
-          name: bash uploader
-          command:
-            - bash <(curl -s https://codecov.io/bash) -cF javascript
       - codecov/upload:
           file: "./coverage/clover.xml"
           token: d5e4b315-e50d-4c4a-bfe0-7d1f91e9c797
