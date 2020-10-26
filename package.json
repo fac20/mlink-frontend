@@ -3,8 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@digitalroute/cz-conventional-changelog-for-jira": "^6.0.2",
     "@testing-library/jest-dom": "^4.2.4",
+||||||| 6a055e4
+    "@testing-library/jest-dom": "^4.2.4",
+=======
+>>>>>>> 6b8ac92e8c3ff8cf7037ae962ae322dc479d3a33
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "firebase": "^7.24.0",
@@ -30,6 +35,9 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "extends": [
+    "plugin:json/recommended"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",
@@ -50,12 +58,14 @@
     "@storybook/node-logger": "^6.0.26",
     "@storybook/preset-create-react-app": "^3.1.4",
     "@storybook/react": "^6.0.26",
+    "@testing-library/jest-dom": "^4.2.4",
     "babel-loader": "^8.1.0",
     "codecov": "^3.8.0",
     "commitizen": "^4.2.2",
     "eslint-config-prettier": "^6.13.0",
     "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-jest": "^24.1.0",
+    "eslint-plugin-json": "^2.1.2",
     "firebase-tools": "^8.12.1",
     "husky": "^4.3.0",
     "lint-staged": "^10.4.2",
@@ -63,8 +73,9 @@
     "react-is": "^17.0.0"
   },
   "lint-staged": {
-    "*.{js,jsx,json,ts,tsx,md,html,css,sass,yml,scss,md,graphql}": [
-      "npm run prettify"
+    "*.{js,jsx,ts,tsx,md,html,css,sass,yml,scss,md,graphql}": [
+      "npm run prettify",
+      "npm run lint"
     ]
   },
   "config": {

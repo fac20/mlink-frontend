@@ -37,8 +37,6 @@ export const ProfileHeader = styled.section`
 export const ProfilePic = styled(PersonOutline)`
   color: var(--main-pink);
   position: absolute;
-  bottom: -35px;
-  border: ;
 `;
 
 export const Description = styled.section``;
@@ -46,7 +44,6 @@ export const Text = styled.p``;
 export const EditIcon = styled(Pencil)`
   position: absolute;
   bottom: 5px;
-
   float: right;
 `;
 
