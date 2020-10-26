@@ -2,9 +2,9 @@ version: 2.1
 orbs:
   codecov: codecov/codecov@1.0.2
 jobs:
-  installation:
+  build:
     docker:
-      - image: cimg/node:latest
+      - image: circleci/node:14.5.0
     steps:
       - checkout
       - restore_cache:
@@ -23,8 +23,15 @@ jobs:
           paths:
             - ~/project/node_modules
       - run:
-          name: run tests
-          command: npm run test
+          name: run tests and generate coverage
+          command: npm test -- --coverage --watchAll=false
+      # - run:
+      #     name: coverage report
+      #     command: jest --runInBand --ci  --reporters=default  --coverage --coverageDirectory=coverage
+      - codecov/upload:
+          file: "./coverage/clover.xml"
+          token: d5e4b315-e50d-4c4a-bfe0-7d1f91e9c797
+
   # Coverage:
   #   docker:
   #     - image: circleci/node:14.5.0
@@ -36,9 +43,7 @@ jobs:
   #         command: npm test -- --coverage --watchAll=false
   #     - codecov/upload:
   #         file: './coverage/clover.xml'
-  #         token: ${CODECOV_TOKEN}workflows:
+workflows:
   push:
     jobs:
-      - installation
-      - coverage:
-          requires: installation
+      - build
