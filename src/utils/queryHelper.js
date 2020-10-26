@@ -1,4 +1,4 @@
-export default (query, variables) => {
+export default (query, variables, sortResponse) => {
   fetch("https://tfb-mlink.herokuapp.com/v1/graphql", {
     method: "POST",
     headers: {
@@ -12,7 +12,7 @@ export default (query, variables) => {
       return response.json();
     })
     .then((json) => {
-      console.log(json);
+      return sortResponse(json);
     })
     .catch((error) => {
       console.error(error);
