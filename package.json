@@ -61,11 +61,6 @@
     "prettier": "^2.1.2",
     "react-is": "^17.0.0"
   },
-  "husky": {
-    "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
-    }
-  },
   "lint-staged": {
     "*.{js,jsx,json,ts,tsx,md,html,css,sass,yml,scss,md,graphql}": [
       "npm run prettify"
