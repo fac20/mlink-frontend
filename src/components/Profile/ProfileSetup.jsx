@@ -1,107 +1,41 @@
 import React from "react";
-import { Title } from "./ProfileSetup.styles";
 import { jobTitleQuery } from "./../../utils/ProfileQueries";
+import {
+  GetStartedBtn,
+  Title,
+  PageWrapper
+} from "../Onboarding/Onboarding.styles";
 
 function ProfileSetup() {
   React.useEffect(() => {
-    const result = jobTitleQuery();
-    console.log(result);
-  });
-
-  // {
-  //     "data": {
-  //       "job_titles": [
-  //         {
-  //           "job_title": "FY 1"
-  //         },
-  //         {
-  //           "job_title": "FY 2"
-  //         },
-  //         {
-  //           "job_title": "IMT 1"
-  //         },
-  //         {
-  //           "job_title": "IMT 2"
-  //         },
-  //         {
-  //           "job_title": "IMT 3"
-  //         },
-  //         {
-  //           "job_title": "CT 1"
-  //         },
-  //         {
-  //           "job_title": "CT 2"
-  //         },
-  //         {
-  //           "job_title": "SHO"
-  //         },
-  //         {
-  //           "job_title": "ST 1"
-  //         },
-  //         {
-  //           "job_title": "ST 2"
-  //         },
-  //         {
-  //           "job_title": "ST 3"
-  //         },
-  //         {
-  //           "job_title": "ST 4"
-  //         },
-  //         {
-  //           "job_title": "ST 5"
-  //         },
-  //         {
-  //           "job_title": "ST 6"
-  //         },
-  //         {
-  //           "job_title": "ST 7"
-  //         },
-  //         {
-  //           "job_title": "ST 8"
-  //         },
-  //         {
-  //           "job_title": "Consultant"
-  //         },
-  //         {
-  //           "job_title": "Clinical Fellow"
-  //         },
-  //         {
-  //           "job_title": "Research Fellow"
-  //         },
-  //         {
-  //           "job_title": "SAS Doctor"
-  //         },
-  //         {
-  //           "job_title": "Locum Appointment"
-  //         },
-  //         {
-  //           "job_title": "FY 3"
-  //         },
-  //         {
-  //           "job_title": "FY 4"
-  //         },
-  //         {
-  //           "job_title": "FY 5"
-  //         },
-  //         {
-  //           "job_title": "CT 3"
-  //         },
-  //         {
-  //           "job_title": "Out-of-training Doctor"
-  //         },
-  //         {
-  //           "job_title": "Non-clinical Doctor"
-  //         },
-  //         {
-  //           "job_title": "NOTENTERED YET"
-  //         }
-  //       ]
-  //     }
-  //   }
+    const jobTitlesQuery = `query MyQuery {
+      job_titles {
+        job_title
+      }
+    }`;
+    fetch("https://tfb-mlink.herokuapp.com/v1/graphql", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "x-hasura-admin-secret": "secretKey"
+      },
+      body: JSON.stringify({ query: jobTitlesQuery })
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error("Request failed");
+        return response.json();
+      })
+      .then((json) => {
+        console.log(json);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, []);
 
   return (
-    <>
-      <Title>Profile Setup</Title>
+    <PageWrapper>
+      <Title style={{ color: "black" }}>Profile Setup</Title>
       <form onSubmit="">
         {/* We need to target db for the drop down menu, will come back to this */}
         <label htmlFor="title">Title</label>
@@ -132,9 +66,9 @@ function ProfileSetup() {
 
         <label htmlFor="specialty">Specialty</label>
 
-        <button type="submit">Finish</button>
+        <GetStartedBtn type="submit">Finish</GetStartedBtn>
       </form>
-    </>
+    </PageWrapper>
   );
 }
 

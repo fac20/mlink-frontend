@@ -5,13 +5,11 @@
 // display in a dropdown select option format
 
 export function jobTitleQuery() {
-  const query = `
-    query MyQuery {
-        job_titles {
-          job_title
-        }
-      } 
-    }`;
+  const jobTitleQuery = `query MyQuery {
+    job_titles {
+      job_title
+    }
+  }`;
 
   fetch("https://tfb-mlink.herokuapp.com/v1/graphql", {
     method: "POST",
