@@ -2,8 +2,8 @@
 
 :root {
   --main-pink: hsl(348, 79%, 63%);
-  --main-blue: hsl(197, 100, 40, 100%);
-  --light-blue: hsl(209, 51, 74, 100%);
+  --main-blue: hsl(197, 100%, 40%, 100);
+  --light-blue: hsl(209, 51%, 74%, 100);
   --main-font: "Poppins", sans-serif;
 }
 body {

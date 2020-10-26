@@ -9,7 +9,7 @@ import {
   useHistory
 } from "react-router-dom";
 
-// import Profile from "./components/Profile/Profile";
+import Profile from "./components/Profile/Profile.jsx";
 // import Dashboard from "./components/Dashboard/Dashboard";
 // import Network from "./components/Network/Network";
 import Onboarding from "./components/Onboarding/Onboarding.jsx";
@@ -17,20 +17,20 @@ import Onboarding from "./components/Onboarding/Onboarding.jsx";
 // import Requests from "./components/Requests/Requests";
 // import Signup from "./components/SignupLogin/Signup";
 // import Login from "./components/SignupLogin/Login";
-import query from "./utils/SearchQueries";
+// import query from "./utils/SearchQueries";
 
 export default function App() {
-  React.useEffect(() => {
-    const input = "%Doe%";
-    query(input);
-  }, []);
+  // React.useEffect(() => {
+  //   const input = "%Doe%";
+  //   query(input);
+  // }, []);
 
   return (
     <Router>
       <main>
         <Switch>
           <Route path="/" exact>
-            <Onboarding />
+            <Profile />
           </Route>
           {/* <Route path="/network" exact>
             <Network />
