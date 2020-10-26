@@ -5,6 +5,7 @@ import queryHelpers from "../../utils/queryHelper";
 function ProfileSetup() {
   const [jobTitles, setJobTitles] = React.useState([]);
   const [medical_schools, setMedicalSchools] = React.useState([]);
+  const [specialities, setSpecialities] = React.useState([]);
 
   React.useEffect(() => {
     //query to get the jobtitles back (found through the hasura console)
@@ -29,9 +30,21 @@ function ProfileSetup() {
       setMedicalSchools(json.data.medical_schools);
     }
 
-    const result = queryHelpers(medicalSchoolsQuery, {}, extractMedicalSchools);
+    const specialitiesQuery = `query MyQuery {
+    specialities {
+      speciality
+    }
+    }`;
+
+    function extractspecialities(json) {
+      setSpecialities(json.data.specialities);
+    }
+
+    queryHelpers(medicalSchoolsQuery, {}, extractMedicalSchools);
 
     queryHelpers(jobTitlesQuery, {}, extractJobTitles);
+
+    queryHelpers(specialitiesQuery, {}, extractspecialities);
 
     // queryHelpers(jobTitlesQuery)
     // .then((json) => {
@@ -78,9 +91,13 @@ function ProfileSetup() {
         </select>
         <br />
 
-        <label htmlFor="specialty">Specialty</label>
+        <label htmlFor="speciality">Specialty</label>
         <br />
-        <select id="specialty" name="specialty" required></select>
+        <select id="specialty" name="specialty" required>
+          {specialities.map((x) => {
+            return <option> {x.speciality}</option>;
+          })}
+        </select>
         <br />
 
         <GetStartedBtn type="submit">Finish</GetStartedBtn>
