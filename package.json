@@ -3,13 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
     "@digitalroute/cz-conventional-changelog-for-jira": "^6.0.2",
     "@testing-library/jest-dom": "^4.2.4",
-||||||| 6a055e4
-    "@testing-library/jest-dom": "^4.2.4",
-=======
->>>>>>> 6b8ac92e8c3ff8cf7037ae962ae322dc479d3a33
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "firebase": "^7.24.0",
