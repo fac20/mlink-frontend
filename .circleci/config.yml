@@ -2,7 +2,7 @@ version: 2.1
 orbs:
   codecov: codecov/codecov@1.0.2
 jobs:
-  installation:
+  build:
     docker:
       - image: circleci/node:14.5.0
     steps:
@@ -26,15 +26,10 @@ jobs:
           name: run tests and generate coverage
           command:
             - npm test -- --coverage --watchAll=false
+      - run:
+          name: bash uploader
+          command:
             - bash <(curl -s https://codecov.io/bash) -cF javascript
-            - comment:
-                layout: "diff"
-                behavior: default
-                require_changes: false # if true: only post the comment if coverage changes
-                require_base: no # [yes :: must have a base report to post]
-                require_head: yes # [yes :: must have a head report to post]
-                branches: # branch names that can post comment
-                  - "main"
       - codecov/upload:
           file: "./coverage/clover.xml"
           token: d5e4b315-e50d-4c4a-bfe0-7d1f91e9c797
@@ -53,4 +48,4 @@ jobs:
 workflows:
   push:
     jobs:
-      - installation
+      - build
