@@ -37,7 +37,7 @@ jobs:
                   - "main"
       - codecov/upload:
           file: "./coverage/clover.xml"
-          token: ${CODECOV_TOKEN}
+          token: d5e4b315-e50d-4c4a-bfe0-7d1f91e9c797
 
   # Coverage:
   #   docker:
