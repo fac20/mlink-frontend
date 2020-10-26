@@ -30,6 +30,9 @@ export default function App() {
       <main>
         <Switch>
           <Route path="/" exact>
+            <Onboarding />
+          </Route>
+          <Route path="/profile" exact>
             <Profile />
           </Route>
           {/* <Route path="/network" exact>
@@ -37,9 +40,6 @@ export default function App() {
           </Route> */}
           {/* <Route path="/dashboard" exact>
             <Dashboard />
-          </Route>
-          <Route path="/profile/:name" exact>
-            <Profile />
           </Route>
           <Route path="/edit-profile" exact>
             <EditProfile />
