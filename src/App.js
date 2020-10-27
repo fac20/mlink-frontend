@@ -11,7 +11,7 @@ import {
 
 import Profile from "./components/Profile/Profile.jsx";
 // import Dashboard from "./components/Dashboard/Dashboard";
-// import Network from "./components/Network/Network";
+import NetworkPage from "./components/Network/Network";
 import Onboarding from "./components/Onboarding/Onboarding.jsx";
 import ProfileSetup from "./components/Profile/ProfileSetup.jsx";
 // import EditProfile from "./components/Profile/EditProfile";
@@ -49,9 +49,9 @@ export default function App() {
           <Route path="/404" exact>
             <PageNotFound />
           </Route>
-          {/* <Route path="/network" exact>
-            <Network />
-          </Route> */}
+          <Route path="/network" exact>
+            <NetworkPage />
+          </Route>
           {/* <Route path="/dashboard" exact>
             <Dashboard />
           </Route>
