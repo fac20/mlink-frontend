@@ -16,9 +16,9 @@ import Onboarding from "./components/Onboarding/Onboarding.jsx";
 import ProfileSetup from "./components/Profile/ProfileSetup.jsx";
 // import EditProfile from "./components/Profile/EditProfile";
 // import Requests from "./components/Requests/Requests";
-// import Signup from "./components/SignupLogin/Signup";
-// import Login from "./components/SignupLogin/Login";
-// import query from "./utils/SearchQueries";
+import SignUpForm from "./components/Registration/Signup.jsx";
+import LoginForm from "./components/Registration/Login.jsx";
+import query from "./utils/SearchQueries";
 
 export default function App() {
   // React.useEffect(() => {
@@ -39,6 +39,12 @@ export default function App() {
           <Route path="/setup" exact>
             <ProfileSetup />
           </Route>
+          <Route path="/login" exact>
+            <LoginForm />
+          </Route>
+          <Route path="/signup" exact>
+            <SignUpForm />
+          </Route>
           {/* <Route path="/network" exact>
             <Network />
           </Route> */}
@@ -51,9 +57,7 @@ export default function App() {
           <Route path="/requests" exact>
             <Requests />
           </Route>
-          <Route path="/signup" exact>
-            <Signup />
-          </Route>
+
           <Route path="/login" exact>
             <Login />
           </Route> */}

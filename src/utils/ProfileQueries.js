@@ -14,9 +14,9 @@ import queryHelper from "./queryHelper";
 
 
 
-function medSchool() {
+// function medSchool() {
 
-    const medSchoolQuery = `
-    `;
+//     const medSchoolQuery = `
+//     `;
     
-};
+// };
