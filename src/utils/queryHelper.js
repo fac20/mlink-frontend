@@ -1,4 +1,4 @@
-export default (query, variables) => {
+export default function queryHelper(query, variables) {
   fetch("https://tfb-mlink.herokuapp.com/v1/graphql", {
     method: "POST",
     headers: {

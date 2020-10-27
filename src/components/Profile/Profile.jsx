@@ -8,8 +8,15 @@ import {
   ProfilePic,
   Description,
   Text,
-  EditIcon
+  EditIcon,
+  UserInfo
 } from "./Profile.styles";
+
+
+// current job
+// previous job
+// medical school
+// postgr
 
 export default function Profile() {
   // const [jobTitles, setJobTitles] = React.useState("");

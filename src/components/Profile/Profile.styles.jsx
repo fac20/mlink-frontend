@@ -1,5 +1,6 @@
 import react from "react";
 import styled from "styled-components";
+import { ArrowIosDownwardOutline } from "@styled-icons/evaicons-outline/ArrowIosDownwardOutline"
 import { ArrowIosBackOutline } from "@styled-icons/evaicons-outline/ArrowIosBackOutline";
 import { PersonOutline } from "@styled-icons/material-sharp/PersonOutline";
 import { Pencil } from "@styled-icons/ionicons-sharp/Pencil";
@@ -14,6 +15,7 @@ export const BlueBackArrow = styled(ArrowIosBackOutline)`
   color: var(--main-blue);
   size: 5px;
 `;
+
 
 export const BackButton = styled.button`
   border: none;
@@ -45,6 +47,10 @@ export const EditIcon = styled(Pencil)`
   position: absolute;
   bottom: 5px;
   float: right;
+`;
+
+export const UserInfo = styled.section`
+
 `;
 
 /*
