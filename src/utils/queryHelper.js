@@ -1,4 +1,4 @@
-export default (query, variables, sortResponse) => {
+export default (query, variables, tableName, objectKeyName, setStateFunction) => {
   fetch("https://tfb-mlink.herokuapp.com/v1/graphql", {
     method: "POST",
     headers: {
@@ -12,7 +12,12 @@ export default (query, variables, sortResponse) => {
       return response.json();
     })
     .then((json) => {
-      return sortResponse(json);
+      let dataArray = json.data;
+      if (tableName !== "" && objectKeyName !== "") {
+        dataArray = dataArray[tableName];
+        dataArray.sort((a, b) => a[objectKeyName].localeCompare(b[objectKeyName]));
+      }
+      return setStateFunction(dataArray);
     })
     .catch((error) => {
       console.error(error);
