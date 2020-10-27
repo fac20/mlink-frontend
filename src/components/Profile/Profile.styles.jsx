@@ -1,8 +1,22 @@
 import react from "react";
 import styled from "styled-components";
-import { ArrowIosBackOutline } from "@styled-icons/evaicons-outline/ArrowIosBackOutline";
+import { ArrowBackIos } from "@styled-icons/material-twotone/ArrowBackIos";
 import { PersonOutline } from "@styled-icons/material-sharp/PersonOutline";
 import { Pencil } from "@styled-icons/ionicons-sharp/Pencil";
+import { ArrowDropDown } from "@styled-icons/material-rounded/ArrowDropDown";
+
+export const Section = styled.section`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+export const ProfileBody = styled.section`
+  display: flex;
+  flex-direction: column;
+  margin: 3rem 20%;
+`;
+export const UserInfo = styled.article``;
+export const Subtitle = styled.h4``;
 
 export const UserProfile = styled.section`
   display: flex;
@@ -10,44 +24,40 @@ export const UserProfile = styled.section`
   justify-content: center;
   margin: 0 auto;
 `;
-export const BlueBackArrow = styled(ArrowIosBackOutline)`
+export const BlueBackArrow = styled(ArrowBackIos)`
   color: var(--main-blue);
   size: 5px;
 `;
+export const ReadMoreArrow = styled(ArrowDropDown)`
+  transform: ${(p) => (p.readMore ? "scaleX(-1)" : "")};
+`;
 
-export const BackButton = styled.button`
-  border: none;
+export const Button = styled.button`
   background-color: transparent;
+  border: none;
 `;
 
 export const ProfileHeader = styled.section`
-  padding: 1rem;
-
-  position: relative;
   background-color: var(--light-blue);
-  /* left: -3.73%;
-  right: -4%;
-  top: 0%;
-  bottom: 74.66%; */
-  height: 30vh;
-  /* border-radius: 10px 100px / 120px; */
   border-radius: 0px 0px 10% 10%;
+  height: 30vh;
+  padding: 1rem;
+  position: relative;
 `;
 
 export const ProfilePic = styled(PersonOutline)`
+  bottom: 0.5rem;
   color: var(--main-pink);
   position: absolute;
-  bottom: -35px;
-  border: ;
 `;
 
 export const Description = styled.section``;
 export const Text = styled.p``;
-export const EditIcon = styled(Pencil)`
-  position: absolute;
-  bottom: 5px;
 
-  float: right;
+export const EditIcon = styled(Pencil)`
+  bottom: 2rem;
+  position: absolute;
+  right: 1rem;
 `;
 
 /*
