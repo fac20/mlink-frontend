@@ -13,11 +13,12 @@ import Profile from "./components/Profile/Profile.jsx";
 // import Dashboard from "./components/Dashboard/Dashboard";
 // import Network from "./components/Network/Network";
 import Onboarding from "./components/Onboarding/Onboarding.jsx";
+import ProfileSetup from "./components/Profile/ProfileSetup.jsx";
 // import EditProfile from "./components/Profile/EditProfile";
 // import Requests from "./components/Requests/Requests";
-// import Signup from "./components/SignupLogin/Signup";
-// import Login from "./components/SignupLogin/Login";
-// import query from "./utils/SearchQueries";
+import SignUpForm from "./components/Registration/Signup.jsx";
+import LoginForm from "./components/Registration/Login.jsx";
+import query from "./utils/SearchQueries";
 
 export default function App() {
   // React.useEffect(() => {
@@ -30,7 +31,19 @@ export default function App() {
       <main>
         <Switch>
           <Route path="/" exact>
+            <Onboarding />
+          </Route>
+          <Route path="/profile" exact>
             <Profile />
+          </Route>
+          <Route path="/setup" exact>
+            <ProfileSetup />
+          </Route>
+          <Route path="/login" exact>
+            <LoginForm />
+          </Route>
+          <Route path="/signup" exact>
+            <SignUpForm />
           </Route>
           {/* <Route path="/network" exact>
             <Network />
@@ -38,18 +51,13 @@ export default function App() {
           {/* <Route path="/dashboard" exact>
             <Dashboard />
           </Route>
-          <Route path="/profile/:name" exact>
-            <Profile />
-          </Route>
           <Route path="/edit-profile" exact>
             <EditProfile />
           </Route>
           <Route path="/requests" exact>
             <Requests />
           </Route>
-          <Route path="/signup" exact>
-            <Signup />
-          </Route>
+
           <Route path="/login" exact>
             <Login />
           </Route> */}

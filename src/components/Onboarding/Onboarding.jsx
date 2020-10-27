@@ -2,7 +2,7 @@ import React from "react";
 
 import {
   GetStartedBtn,
-  Title,
+  OnboardingTitle,
   Subtitle,
   Text,
   Image,
@@ -13,7 +13,7 @@ import landingHero from "./../../assets/images/landingHero.svg";
 function Onboarding() {
   return (
     <PageWrapper>
-      <Title>MLink</Title>
+      <OnboardingTitle>MLink</OnboardingTitle>
       <Subtitle>
         Networking for Healthcare <br />
         Professionals

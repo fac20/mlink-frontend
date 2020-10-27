@@ -16,6 +16,11 @@ import {
   Section
 } from "./Profile.styles";
 
+// current job
+// previous job
+// medical school
+// postgr
+
 export default function Profile() {
   const [readMore, setReadMore] = React.useState(false);
   // create a button
