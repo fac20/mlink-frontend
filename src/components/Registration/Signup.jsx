@@ -32,7 +32,7 @@ function SignUpForm() {
           style={{ margin: "auto", "margin-top": "36.6px" }}
           type="submit"
         >
-          Login
+          Sign up
         </GetStartedBtn>
       </Form>
     </PageWrapper>

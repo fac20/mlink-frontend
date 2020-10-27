@@ -19,6 +19,7 @@ import ProfileSetup from "./components/Profile/ProfileSetup.jsx";
 import SignUpForm from "./components/Registration/Signup.jsx";
 import LoginForm from "./components/Registration/Login.jsx";
 import query from "./utils/SearchQueries";
+import PageNotFound from "./components/PageNotFound/PageNotFound.jsx";
 
 export default function App() {
   React.useEffect(() => {
@@ -41,6 +42,9 @@ export default function App() {
           </Route>
           <Route path="/signup" exact>
             <SignUpForm />
+          </Route>
+          <Route path="/404" exact>
+            <PageNotFound />
           </Route>
           {/* <Route path="/network" exact>
             <Network />
