@@ -1,16 +1,8 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useParams,
-  useLocation,
-  useHistory
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, useParams, useLocation, useHistory } from "react-router-dom";
 
 import Profile from "./components/Profile/Profile.jsx";
-// import Dashboard from "./components/Dashboard/Dashboard";
+import Dashboard from "./components/Dashboard/Dashboard";
 // import Network from "./components/Network/Network";
 import Onboarding from "./components/Onboarding/Onboarding.jsx";
 import ProfileSetup from "./components/Profile/ProfileSetup.jsx";
@@ -52,9 +44,10 @@ export default function App() {
           {/* <Route path="/network" exact>
             <Network />
           </Route> */}
-          {/* <Route path="/dashboard" exact>
+          <Route path="/dashboard" exact>
             <Dashboard />
           </Route>
+          {/* 
           <Route path="/edit-profile" exact>
             <EditProfile />
           </Route>

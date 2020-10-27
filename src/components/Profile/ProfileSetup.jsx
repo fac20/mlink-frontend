@@ -53,35 +53,19 @@ function ProfileSetup() {
       }`;
 
     //function that gets specifically what we want and updating the state of jobTitles
-    function extractJobTitles(json) {
-      let jobtitlesarray = json.data.job_titles;
-      jobtitlesarray.sort((a, b) => a.job_title.localeCompare(b.job_title));
-      setJobTitles(jobtitlesarray);
-    }
+    // // function extractJobTitles(json) {
+    // //   let jobtitlesarray = json.data.job_titles;
+    // //   jobtitlesarray.sort((a, b) => a.job_title.localeCompare(b.job_title));
+    // //   setJobTitles(jobtitlesarray);
+    // // }
 
-    function extractTitles(json) {
-      setTitles(json.data.titles_list);
-    }
+    queryHelpers(medicalSchoolsQuery, {}, "medical_schools", "medical_school", setMedicalSchools);
 
-    function extractMedicalSchools(json) {
-      let medicalSchoolsArray = json.data.medical_schools;
-      medicalSchoolsArray.sort((a, b) => a.medical_school.localeCompare(b.medical_school));
-      setMedicalSchools(medicalSchoolsArray);
-    }
+    queryHelpers(jobTitlesQuery, {}, "job_titles", "job_title", setJobTitles);
 
-    function extractspecialities(json) {
-      let specialitiesArray = json.data.specialities;
-      specialitiesArray.sort((a, b) => a.speciality.localeCompare(b.speciality));
-      setSpecialities(specialitiesArray);
-    }
+    queryHelpers(specialitiesQuery, {}, "specialities", "speciality", setSpecialities);
 
-    queryHelpers(medicalSchoolsQuery, {}, extractMedicalSchools);
-
-    queryHelpers(jobTitlesQuery, {}, extractJobTitles);
-
-    queryHelpers(specialitiesQuery, {}, extractspecialities);
-
-    queryHelpers(titlesQuery, {}, extractTitles);
+    queryHelpers(titlesQuery, {}, "titles_list", "title", setTitles);
   }, []);
 
   return (
