@@ -25,3 +25,8 @@ export const RegisterButton = styled.button`
   font-weight: 500;
   color: black;
 `;
+
+export const AHref = styled.a`
+  text-decoration: none;
+  color: black; ;
+`;
