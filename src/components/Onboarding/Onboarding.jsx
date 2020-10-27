@@ -17,8 +17,6 @@ function Onboarding() {
 
       <Image alt="onboarding" src={landingHero} />
 
-      <Image alt="onboarding" src={landingHero} />
-
       <Text>
         Connect, learn and grow with other <br />
         like-minded professionals

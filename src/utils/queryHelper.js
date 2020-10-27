@@ -12,10 +12,11 @@ export default (query, variables, tableName, objectKeyName, setStateFunction) =>
       return response.json();
     })
     .then((json) => {
-      console.log(json);
-      let dataArray = json.data[tableName];
-      console.log(dataArray);
-      dataArray.sort((a, b) => a[objectKeyName].localeCompare(b[objectKeyName]));
+      let dataArray = json.data;
+      if (tableName !== "" && objectKeyName !== "") {
+        dataArray = dataArray[tableName];
+        dataArray.sort((a, b) => a[objectKeyName].localeCompare(b[objectKeyName]));
+      }
       return setStateFunction(dataArray);
     })
     .catch((error) => {
