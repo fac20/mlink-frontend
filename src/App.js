@@ -9,7 +9,7 @@ import {
   useHistory
 } from "react-router-dom";
 
-// import Profile from "./components/Profile/Profile";
+import Profile from "./components/Profile/Profile.jsx";
 // import Dashboard from "./components/Dashboard/Dashboard";
 // import Network from "./components/Network/Network";
 import Onboarding from "./components/Onboarding/Onboarding.jsx";
@@ -21,10 +21,10 @@ import LoginForm from "./components/Registration/Login.jsx";
 import query from "./utils/SearchQueries";
 
 export default function App() {
-  React.useEffect(() => {
-    const input = "%Doe%";
-    query(input);
-  }, []);
+  // React.useEffect(() => {
+  //   const input = "%Doe%";
+  //   query(input);
+  // }, []);
 
   return (
     <Router>
@@ -32,6 +32,9 @@ export default function App() {
         <Switch>
           <Route path="/" exact>
             <Onboarding />
+          </Route>
+          <Route path="/profile" exact>
+            <Profile />
           </Route>
           <Route path="/setup" exact>
             <ProfileSetup />
@@ -47,9 +50,6 @@ export default function App() {
           </Route> */}
           {/* <Route path="/dashboard" exact>
             <Dashboard />
-          </Route>
-          <Route path="/profile/:name" exact>
-            <Profile />
           </Route>
           <Route path="/edit-profile" exact>
             <EditProfile />
