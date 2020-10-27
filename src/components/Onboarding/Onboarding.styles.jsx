@@ -1,4 +1,3 @@
-import react from "react";
 import styled from "styled-components";
 
 export const PageWrapper = styled.div`
@@ -6,9 +5,10 @@ export const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: left;
 `;
 
-export const Title = styled.h1`
+export const OnboardingTitle = styled.h1`
   font-family: var(--main-font);
   font-size: 36px;
   font-style: normal;
