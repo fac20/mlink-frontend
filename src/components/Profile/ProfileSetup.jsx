@@ -54,7 +54,9 @@ function ProfileSetup() {
 
     //function that gets specifically what we want and updating the state of jobTitles
     function extractJobTitles(json) {
-      setJobTitles(json.data.job_titles);
+      let jobtitlesarray = json.data.job_titles;
+      jobtitlesarray.sort((a, b) => a.job_title.localeCompare(b.job_title));
+      setJobTitles(jobtitlesarray);
     }
 
     function extractTitles(json) {
@@ -62,11 +64,15 @@ function ProfileSetup() {
     }
 
     function extractMedicalSchools(json) {
-      setMedicalSchools(json.data.medical_schools);
+      let medicalSchoolsArray = json.data.medical_schools;
+      medicalSchoolsArray.sort((a, b) => a.medical_school.localeCompare(b.medical_school));
+      setMedicalSchools(medicalSchoolsArray);
     }
 
     function extractspecialities(json) {
-      setSpecialities(json.data.specialities);
+      let specialitiesArray = json.data.specialities;
+      specialitiesArray.sort((a, b) => a.speciality.localeCompare(b.speciality));
+      setSpecialities(specialitiesArray);
     }
 
     queryHelpers(medicalSchoolsQuery, {}, extractMedicalSchools);
