@@ -1,14 +1,17 @@
 import React from "react";
-import {
-  GetStartedBtn,
-  Title,
-  PageWrapper
-} from "../Onboarding/Onboarding.styles";
+import { GetStartedBtn, PageWrapper } from "../Onboarding/Onboarding.styles";
+import { Form, H1, Labels, Input, DropInput } from "./ProfileSetup.styles";
 import queryHelpers from "../../utils/queryHelper";
 
 function ProfileSetup() {
   const [jobTitles, setJobTitles] = React.useState([]);
-
+  const dropdownIndicatorStyles = (base, state) => {
+    let changes = {
+      // all your override styles
+      backgroundColor: "blue"
+    };
+    return Object.assign(base, changes);
+  };
   React.useEffect(() => {
     //query to get the jobtitles back (found through the hasura console)
     const jobTitlesQuery = `query MyQuery {
@@ -33,52 +36,50 @@ function ProfileSetup() {
 
   return (
     <PageWrapper>
-      <Title style={{ color: "black" }}>Profile Setup</Title>
-      <form onSubmit="">
-        <label htmlFor="title">Title</label>
-        <br />
-        <select id="title" name="title" required>
+      <H1 style={{ color: "black" }}>Profile Setup</H1>
+      <Form onSubmit="">
+        <Labels htmlFor="title">Title</Labels>
+        <DropInput id="title" name="title" required>
           <option value="Target db">Mr</option>
           <option value="Target db for miss">Miss</option>
           <option value="Target db for Mrs">Mrs</option>
           <option value="Target db for DR">Dr</option>
           <option value="Target db for Prof">Prof</option>
-        </select>
+        </DropInput>
         <br />
 
-        <label htmlFor="name">Full Name</label>
+        <Labels htmlFor="name">Full Name</Labels>
+        <Input id="name" name="name" type="text" value="" required />
         <br />
-        <input
-          id="name"
-          name="name"
-          type="text"
-          placeholder="Type your name"
-          value=""
+
+        <Labels htmlFor="current_job">Current Job</Labels>
+        <DropInput
+          styles={{ dropdownIndicator: dropdownIndicatorStyles }}
+          id="current_job"
+          name="current_job"
           required
-        />
-        <br />
-
-        <label htmlFor="current_job">Current job title</label>
-        <br />
-        <br />
-        <select id="current_job" name="current_job" required>
+        >
           {jobTitles.map((x) => {
             return <option>{x.job_title}</option>;
           })}
-        </select>
-
-        <label htmlFor="school">Medical School</label>
-        <br />
-        <select id="school" name="school" required></select>
+        </DropInput>
         <br />
 
-        <label htmlFor="specialty">Specialty</label>
-        <br />
-        <select id="specialty" name="specialty" required></select>
+        <Labels htmlFor="school">Medical School</Labels>
+        <DropInput id="school" name="school" required></DropInput>
         <br />
 
-        <GetStartedBtn type="submit">Finish</GetStartedBtn>
-      </form>
+        <Labels htmlFor="specialty">Specialty</Labels>
+        <DropInput id="specialty" name="specialty" required></DropInput>
+        <br />
+
+        <GetStartedBtn
+          style={{ width: "129px", height: "47px", margin: "auto" }}
+          type="submit"
+        >
+          Finish
+        </GetStartedBtn>
+      </Form>
     </PageWrapper>
   );
 }
