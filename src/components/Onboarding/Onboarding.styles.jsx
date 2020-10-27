@@ -61,4 +61,5 @@ export const GetStartedBtn = styled.button`
   margin-top: 8px;
   text-align: center;
   color: #ffffff;
+  cursor: pointer;
 `;
