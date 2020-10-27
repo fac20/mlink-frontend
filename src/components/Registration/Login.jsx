@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { GetStartedBtn, PageWrapper } from "../Onboarding/Onboarding.styles";
 import { Form, H1, Labels, Input } from "../Profile/ProfileSetup.styles";
-import { RegisterText, TextDiv, RegisterButton } from "./Login.styles.";
+import { RegisterText, TextDiv, RegisterButton, AHref } from "./Login.styles.";
 
 function LoginForm() {
   const RegisterFunc = () => {
@@ -43,7 +43,9 @@ function LoginForm() {
 
         <TextDiv>
           <RegisterText>Don’t have an account? </RegisterText>
-          <RegisterButton onClick={RegisterFunc}>Register</RegisterButton>
+          <RegisterButton>
+            <AHref href="/signup"> Register </AHref>
+          </RegisterButton>
         </TextDiv>
       </Form>
     </PageWrapper>

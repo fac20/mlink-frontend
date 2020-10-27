@@ -26,10 +26,10 @@ export const DropInput = styled.select`
   width: 272px;
   height: 50.96px;
   border: none;
-  text-align-last: center;
   font-family: var(--main-font);
   font-weight: 500;
   font-size: 12px;
+  text-align-last: center;
 `;
 
 export const Form = styled.form`
