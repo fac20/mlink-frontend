@@ -29,7 +29,7 @@ export const BlueBackArrow = styled(ArrowBackIos)`
   size: 5px;
 `;
 export const ReadMoreArrow = styled(ArrowDropDown)`
-  transform: ${(p) => (p.readMore ? "scaleX(-1)" : "")};
+  transform: ${(props) => (props.readMore ? "scaleY(-1)" : "")};
 `;
 
 export const Button = styled.button`

@@ -42,7 +42,7 @@ export default function Profile() {
             <Section>
               <Subtitle>Medical school</Subtitle>
               <Button onClick={() => setReadMore(!readMore)}>
-                <ReadMoreArrow size="32" p={readMore} />
+                <ReadMoreArrow size="32" readMore={readMore} />
               </Button>
             </Section>
 
