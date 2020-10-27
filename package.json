@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@digitalroute/cz-conventional-changelog-for-jira": "^6.0.2",
+    "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "firebase": "^7.24.0",
@@ -10,7 +12,8 @@
     "react-dom": "^16.14.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.4",
-    "styled-components": "^5.2.0"
+    "styled-components": "^5.2.0",
+    "styled-icons": "^10.22.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -21,7 +24,8 @@
     "prettify": "prettier --write",
     "precommit": "lint-staged",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "commit": "git-cz"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -52,6 +56,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "babel-loader": "^8.1.0",
     "codecov": "^3.8.0",
+    "commitizen": "^4.2.2",
     "eslint-config-prettier": "^6.13.0",
     "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-jest": "^24.1.0",
@@ -62,15 +67,15 @@
     "prettier": "^2.1.2",
     "react-is": "^17.0.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run precommit"
-    }
-  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,md,html,css,sass,yml,scss,md,graphql}": [
       "npm run prettify",
       "npm run lint"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/@digitalroute/cz-conventional-changelog-for-jira"
+    }
   }
 }
