@@ -1,10 +1,14 @@
 import React from "react";
+import { GetStartedBtn, Title, PageWrapper } from "../Onboarding/Onboarding.styles";
 import { GetStartedBtn, PageWrapper } from "../Onboarding/Onboarding.styles";
 import { Form, H1, Labels, Input, DropInput } from "./ProfileSetup.styles";
 import queryHelpers from "../../utils/queryHelper";
 
 function ProfileSetup() {
   const [jobTitles, setJobTitles] = React.useState([]);
+  const [medical_schools, setMedicalSchools] = React.useState([]);
+  const [specialities, setSpecialities] = React.useState([]);
+
   const dropdownIndicatorStyles = (base, state) => {
     let changes = {
       // all your override styles
@@ -25,7 +29,31 @@ function ProfileSetup() {
       setJobTitles(json.data.job_titles);
     }
 
+    const medicalSchoolsQuery = `query allMedicalSchools {
+    medical_schools {
+      medical_school
+    }
+    }`;
+
+    function extractMedicalSchools(json) {
+      setMedicalSchools(json.data.medical_schools);
+    }
+
+    const specialitiesQuery = `query MyQuery {
+    specialities {
+      speciality
+    }
+    }`;
+
+    function extractspecialities(json) {
+      setSpecialities(json.data.specialities);
+    }
+
+    queryHelpers(medicalSchoolsQuery, {}, extractMedicalSchools);
+
     queryHelpers(jobTitlesQuery, {}, extractJobTitles);
+
+    queryHelpers(specialitiesQuery, {}, extractspecialities);
 
     // queryHelpers(jobTitlesQuery)
     // .then((json) => {
@@ -53,12 +81,7 @@ function ProfileSetup() {
         <br />
 
         <Labels htmlFor="current_job">Current Job</Labels>
-        <DropInput
-          styles={{ dropdownIndicator: dropdownIndicatorStyles }}
-          id="current_job"
-          name="current_job"
-          required
-        >
+        <DropInput styles={{ dropdownIndicator: dropdownIndicatorStyles }} id="current_job" name="current_job" required>
           {jobTitles.map((x) => {
             return <option>{x.job_title}</option>;
           })}
@@ -66,17 +89,22 @@ function ProfileSetup() {
         <br />
 
         <Labels htmlFor="school">Medical School</Labels>
-        <DropInput id="school" name="school" required></DropInput>
+        <DropInput id="school" name="school" required>
+          {medical_schools.map((x) => {
+            return <option> {x.medical_school}</option>;
+          })}
+        </DropInput>
         <br />
 
         <Labels htmlFor="specialty">Specialty</Labels>
-        <DropInput id="specialty" name="specialty" required></DropInput>
+        <DropInput id="specialty" name="specialty" required>
+          {specialities.map((x) => {
+            return <option> {x.speciality}</option>;
+          })}
+        </DropInput>
         <br />
 
-        <GetStartedBtn
-          style={{ width: "129px", height: "47px", margin: "auto" }}
-          type="submit"
-        >
+        <GetStartedBtn style={{ width: "129px", height: "47px", margin: "auto" }} type="submit">
           Finish
         </GetStartedBtn>
       </Form>
