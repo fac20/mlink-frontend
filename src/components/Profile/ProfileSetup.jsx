@@ -1,5 +1,5 @@
 import React from "react";
-import { GetStartedBtn, PageWrapper } from "../Onboarding/Onboarding.styles";
+import { GetStartedBtn, Title, PageWrapper } from "../Onboarding/Onboarding.styles";
 import { Form, H1, Labels, Input, DropInput } from "./ProfileSetup.styles";
 import queryHelpers from "../../utils/queryHelper";
 
@@ -14,13 +14,6 @@ function ProfileSetup() {
   const [medicalSchoolInput, setMedicalSchoolInput] = React.useState("");
   const [titleInput, setTitleInput] = React.useState("");
 
-  const dropdownIndicatorStyles = (base, state) => {
-    let changes = {
-      // all your override styles
-      backgroundColor: "blue"
-    };
-    return Object.assign(base, changes);
-  };
 
   React.useEffect(() => {
     //query to get the jobtitles back (found through the hasura console)
@@ -73,6 +66,7 @@ function ProfileSetup() {
       <H1 style={{ color: "black" }}>Profile Setup</H1>
       <Form onSubmit="">
         <Labels htmlFor="title">Title</Labels>
+
         <DropInput
           onChange={(e) => {
             setTitleInput(e.target.value);
@@ -85,11 +79,6 @@ function ProfileSetup() {
           {titles.map((x) => {
             return <option value={x.id}>{x.title}</option>;
           })}
-          {/* <option value="Target db">Mr</option>
-          <option value="Target db for miss">Miss</option>
-          <option value="Target db for Mrs">Mrs</option>
-          <option value="Target db for DR">Dr</option>
-          <option value="Target db for Prof">Prof</option> */}
         </DropInput>
         <br />
 
@@ -102,7 +91,6 @@ function ProfileSetup() {
           onChange={(e) => {
             setJobTitleInput(e.target.value);
           }}
-          styles={{ dropdownIndicator: dropdownIndicatorStyles }}
           id="current_job"
           name="current_job"
           required
@@ -114,19 +102,19 @@ function ProfileSetup() {
         <br />
 
         <Labels htmlFor="school">Medical School</Labels>
-        <DropInput
-          onChange={(e) => {
-            setMedicalSchoolInput(e.target.value);
-            console.log(medicalSchoolInput);
-          }}
-          id="school"
-          name="school"
-          required
-        >
-          {medical_schools.map((x) => {
-            return <option value={x.id}> {x.medical_school}</option>;
-          })}
-        </DropInput>
+          <DropInput
+            onChange={(e) => {
+              setMedicalSchoolInput(e.target.value);
+              console.log(medicalSchoolInput);
+            }}
+            id="school"
+            name="school"
+            required
+          >
+            {medical_schools.map((x) => {
+              return <option value={x.id}> {x.medical_school}</option>;
+            })}
+          </DropInput>
         <br />
 
         <Labels htmlFor="specialty">Specialty</Labels>

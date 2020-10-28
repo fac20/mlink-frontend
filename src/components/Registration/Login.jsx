@@ -6,16 +6,19 @@ import { RegisterText, TextDiv, RegisterButton, AHref, FlexDiv, AlignStartWrappe
 import { FaRegEyeSlash } from "react-icons/fa";
 
 function LoginForm() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const [inputType, setInputType] = useState("password");
+    const [error, setError] = useState();
 
     const RegisterFunc = () => {
       return <Link to="/signup">Register</Link>;
     };
 
+
     return (
       <PageWrapper>
         <H1 style={{ color: "black", "line-height": "30px" }}>Login</H1>
-
         <Form>
         <AlignStartWrapper>
           <Labels htmlFor="email">Email</Labels>
@@ -23,8 +26,10 @@ function LoginForm() {
             name="email"
             id="email"
             type="email"
-            value=""
-            onChange=""
+            value={email}
+            onChange={event => {
+              setEmail(event.target.value);
+            }}
             required
           />
           <br />
@@ -33,9 +38,11 @@ function LoginForm() {
             <Input
               name="password"
               id="password"
-              type=""
-              value=""
-              onChange=""
+              type={inputType}
+              value={password}
+              onChange={event => {
+                setPassword(event.target.value);
+              }}
               required
             />
             <div
