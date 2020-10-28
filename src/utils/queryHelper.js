@@ -17,7 +17,8 @@ export default (query, variables, tableName, objectKeyName, setStateFunction) =>
         dataArray = dataArray[tableName];
         dataArray.sort((a, b) => a[objectKeyName].localeCompare(b[objectKeyName]));
       }
-      return setStateFunction(dataArray);
+      if (setStateFunction !== "") return setStateFunction(dataArray);
+      console.log(dataArray);
     })
     .catch((error) => {
       console.error(error);
