@@ -35,7 +35,7 @@ function NetworkPage() {
         `;
             queryHelpers(networkQuery)
     })
-
+    console.log(queryHelpers(networkQuery));
 
     return(
         <>
