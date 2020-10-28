@@ -1,5 +1,7 @@
 import React from "react";
 import queryHelper from "../../utils/queryHelper";
+// import dashboardQueries from "../../utils/dashboardQueries";
+
 import { ColumnSection, Count, RowSection, Subtitle, DashboardBody } from "./Dashboard.styles";
 
 export default function Dashboard() {
@@ -57,6 +59,7 @@ export default function Dashboard() {
     queryHelper(specialityquery, userId, "", "", setSpecialisationCount);
     queryHelper(workplacequery, userId, "", "", setWorkplaceCount);
     queryHelper(usersLocationQuery, userId, "", "", setCurrentLocation);
+    // dashboardQueries();
   }, []);
 
   if (!medicalSchoolCount.users || !specialisationCount.users || !workplaceCount.users) {
@@ -66,8 +69,8 @@ export default function Dashboard() {
   // queryHelper(locationQuery, currentLocation, "", "", setLocationCount);
 
   // });
-
-  console.log(locationCount);
+  // console.log(dashboardQueries());
+  // console.log(locationCount);
   return (
     <DashboardBody>
       <Subtitle>You have {totalCount} existing mlinks</Subtitle>
