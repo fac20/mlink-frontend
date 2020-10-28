@@ -33,14 +33,7 @@ function NetworkPage() {
           }
           
         `;
-        //   console.log(networkQuery.json.data)
-        // function extractNetworkCard(json){
-        //     getFullName(json.data.full_name);
-        //     getWorkplace(json.data.workplace);
-        //     getSpeciality(json.data.speciality);
-        // }
-        
-        // console.log(extractNetworkCard())
+            queryHelpers(networkQuery)
     })
 
 
