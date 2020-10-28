@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Subtitle = styled.h3`
   background-color: var(--light-blue);
-  width 60vw;
+  width: 60vw;
   border-radius: 10px;
 `;
 
