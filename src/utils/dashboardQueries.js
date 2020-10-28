@@ -1,9 +1,15 @@
 import queryHelper from "./queryHelper";
 
-export default function dashboardQueries(setTotalCount) {
-  const userId = { userId: 1 };
-
-  const dashboardQuery = `query  Myquery ($userId: Int!){
+export default function dashboardQueries(setTotalCount, userInfo) {
+  const {userId, userLocation} = userInfo;
+// contained query that gets all connections for different cases and returns a json with all the data
+  const dashboardQuery = `query  Myquery ($userId: Int!, $userLocation: String!){
+    sameMedSchool: users(where: {medicalSchoolByMedicalSchool: {users: {id: {_eq:  $userId}}}}) {
+      id
+      full_name
+      medical_school
+    }
+  
     sameSpecialisation: users(where: {speciality: {users: {id: {_eq: $userId}}}}) {
        full_name
        speciality {
@@ -17,11 +23,10 @@ export default function dashboardQueries(setTotalCount) {
        }
      }
     
-     sameCity: users(where: {current_location: {_eq: "London"}}) {
+     sameCity: users(where: {current_location: {_eq: $userLocation}}) {
        full_name
        current_location
      }
    }`;
-  // the result from the query will be
-  return queryHelper(dashboardQuery, userId, "", "", setTotalCount);
+  return queryHelper(dashboardQuery, {userId, userLocation}, "", "", setTotalCount);
 }
