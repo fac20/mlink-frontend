@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { GetStartedBtn, PageWrapper } from "../Onboarding/Onboarding.styles";
 import { Form, H1, Labels, Input } from "../Profile/ProfileSetup.styles";
 import { RegisterText, TextDiv, RegisterButton, AHref } from "./Login.styles.";
+import Auth0LoginButton from "./Auth0Login";
 
 function LoginForm() {
   const RegisterFunc = () => {
@@ -22,7 +23,7 @@ function LoginForm() {
         <GetStartedBtn style={{ margin: "auto", "margin-top": "36.6px" }} type="submit">
           Login
         </GetStartedBtn>
-
+        <Auth0LoginButton />
         <TextDiv>
           <RegisterText>Don’t have an account? </RegisterText>
           <RegisterButton>
