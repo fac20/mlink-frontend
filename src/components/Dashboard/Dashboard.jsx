@@ -22,7 +22,10 @@ export default function Dashboard() {
     queryHelper(query, userId, "", "", setMedicalSchoolCount);
   }, []);
 
-  console.log(medicalSchoolCount);
+  if (!medicalSchoolCount.users || !specialisationCount.users || !workplaceCount.users) {
+    return <h3>...Loading</h3>;
+  }
+  // React.useEffect(() => {
 
   return (
     <DashboardBody>
