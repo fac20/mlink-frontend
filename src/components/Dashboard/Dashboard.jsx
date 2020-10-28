@@ -5,81 +5,19 @@ import dashboardQueries from "../../utils/dashboardQueries";
 import { ColumnSection, Count, RowSection, Subtitle, DashboardBody } from "./Dashboard.styles";
 
 export default function Dashboard() {
-  // create user's id variable to use when fetching the connection data 
+  // create user's id variable to use when fetching the connection data
   const userInfo = { userId: 1, userLocation: "London" };
-
-  // const medschoolquery = `query Myquery ($userId: Int!) {
-  //       users(where: {medicalSchoolByMedicalSchool: {users: {id: {_eq:  $userId}}}}) {
-  //         id
-  //         full_name
-  //         medical_school
-  //       }
-  //     }`;
-
-  // const specialityquery = `  query MyQuery ($userId: Int!) {
-  //       users(where: {speciality: {users: {id: {_eq: $userId}}}}) {
-  //         id
-  //         speciality {
-  //           speciality
-  //         }
-  //         full_name
-  //       }
-  //     }`;
-  // const workplacequery = `query MyQuery  ($userId: Int!) {
-  //     users(where: {workplace: {users: {id: {_eq: $userId}}}}) {
-  //        full_name
-  //        workplace {
-  //          workplace
-  //        }
-  //      }
-  //    }`;
-
-  // const usersLocationQuery = `query MyQuery ($userId: Int!) {
-  //   users(where: {current_location: {users: {id: {_eq: $userId}}}}) {
-  //      full_name
-  //      current_location
-  //    }
-  //  }`;
-// 
-  // const locationQuery = `query MyQuery  {
-  //   users(where: {current_location: {_eq: "London"}}) {
-  //     id
-  //     full_name
-  //     current_location
-  //   }
-  // }`;
   const [totalCount, setTotalCount] = React.useState("");
-  // const [medicalSchoolCount, setMedicalSchoolCount] = React.useState([]);
-  // const [specialisationCount, setSpecialisationCount] = React.useState("");
-  // const [workplaceCount, setWorkplaceCount] = React.useState("");
-  // const [locationCount, setLocationCount] = React.useState("");
-
-  const [currentLocation, setCurrentLocation] = React.useState("");
 
   React.useEffect(() => {
-    // queryHelper(medschoolquery, userId, "", "", setMedicalSchoolCount);
-    // queryHelper(specialityquery, userId, "", "", setSpecialisationCount);
-    // queryHelper(workplacequery, userId, "", "", setWorkplaceCount);
-    // queryHelper(usersLocationQuery, userId, "", "", setCurrentLocation);
     dashboardQueries(setTotalCount, userInfo);
   }, []);
 
-  // if (!medicalSchoolCount.users || !specialisationCount.users || !workplaceCount.users) {
-  //   return <h3>...Loading</h3>;
-  // }
-  if(totalCount === ""){
-      return <h3>...Loading</h3>;
-      console.log(totalCount);
+  //The loading code below works but will cause a bug. If the user doesn't have any matches the page will load the H3 forever. Need a forward / back button or setInterval timer to skip the page?
+  if (totalCount === "") {
+    return <h3>Finding your matches</h3>;
   }
 
-  console.log(totalCount);
-
-  // React.useEffect(() => {
-  // queryHelper(locationQuery, currentLocation, "", "", setLocationCount);
-
-  // });
-  // console.log(dashboardQueries());
-  // console.log(locationCount);
   return (
     <DashboardBody>
       <Subtitle>You have {totalCount.length} existing mlinks</Subtitle>
