@@ -1,5 +1,17 @@
 import styled from "styled-components";
 
+export const AlignStartWrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+`;
+
+export const FlexDiv = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: right;
+`;
+
 export const RegisterText = styled.span`
   font-weight: 400;
   font-size: 12px;

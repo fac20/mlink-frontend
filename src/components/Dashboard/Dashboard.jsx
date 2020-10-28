@@ -1,5 +1,5 @@
 import React from "react";
-import queryHelper from "../../utils/queryHelper";
+// import queryHelper from "../../utils/queryHelper";
 import dashboardQueries from "../../utils/dashboardQueries";
 
 import { ColumnSection, Count, RowSection, Subtitle, DashboardBody } from "./Dashboard.styles";

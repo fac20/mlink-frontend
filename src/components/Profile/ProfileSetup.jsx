@@ -1,5 +1,5 @@
 import React from "react";
-import { GetStartedBtn, Title, PageWrapper } from "../Onboarding/Onboarding.styles";
+import { GetStartedBtn, PageWrapper } from "../Onboarding/Onboarding.styles";
 import { Form, H1, Labels, Input, DropInput } from "./ProfileSetup.styles";
 import queryHelpers from "../../utils/queryHelper";
 
