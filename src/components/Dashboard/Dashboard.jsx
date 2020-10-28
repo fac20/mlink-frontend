@@ -15,7 +15,7 @@ export default function Dashboard() {
 
   //The loading code below works but will cause a bug. If the user doesn't have any matches the page will load the H3 forever. Need a forward / back button or setInterval timer to skip the page?
   if (totalCount === "") {
-    return <h3>Finding your matches</h3>;
+    return <h3>Finding your connections</h3>;
   }
 
   return (

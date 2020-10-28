@@ -2,6 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link, useParams, useLocation, useHistory } from "react-router-dom";
 
 import Profile from "./components/Profile/Profile.jsx";
+// import Dashboard from "./components/Dashboard/Dashboard";
+import NetworkPage from "./components/Network/Network";
 import Dashboard from "./components/Dashboard/Dashboard";
 // import Network from "./components/Network/Network";
 import Onboarding from "./components/Onboarding/Onboarding.jsx";
@@ -41,9 +43,9 @@ export default function App() {
           <Route path="/404" exact>
             <PageNotFound />
           </Route>
-          {/* <Route path="/network" exact>
-            <Network />
-          </Route> */}
+          <Route path="/network" exact>
+            <NetworkPage />
+          </Route>
           <Route path="/dashboard" exact>
             <Dashboard />
           </Route>
@@ -54,10 +56,7 @@ export default function App() {
           <Route path="/requests" exact>
             <Requests />
           </Route>
-
-          <Route path="/login" exact>
-            <Login />
-          </Route> */}
+          */}
         </Switch>
       </main>
     </Router>
