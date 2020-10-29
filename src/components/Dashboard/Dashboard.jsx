@@ -1,6 +1,6 @@
 import React from "react";
-// import queryHelper from "../../utils/queryHelper";
 import dashboardQueries from "../../utils/dashboardQueries";
+
 import { ColumnSection, Count, RowSection, Subtitle, DashboardBody } from "./Dashboard.styles";
 import { DotDiv, Loader } from "./Dashboard.styles";
 
@@ -13,7 +13,9 @@ export default function Dashboard({ fallback, fallbackDelay }) {
     dashboardQueries(setTotalCount, userInfo);
   }, []);
 
-  //The loading code below works but will cause a bug. If the user doesn't have any matches the page will load the H3 forever. Need a forward / back button or setInterval timer to skip the page?
+  //The loading code below works but will cause a bug.
+  // If the user doesn't have any matches the page will load the H3 forever.
+  // Need a forward / back button or setInterval timer to skip the page?
   if (totalCount.length === 0) {
     return (
       <>

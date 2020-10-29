@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import errorImage from "../../assets/images/404 Error Large.svg";
 import { Link } from "react-router-dom";
+
+import errorImage from "../../assets/images/404 Error Large.svg";
 import { GetStartedBtn } from "../Onboarding/Onboarding.styles";
 
 const ErrorWrapper = styled.div`

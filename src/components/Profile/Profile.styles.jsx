@@ -86,4 +86,3 @@ export const EditIcon = styled(Pencil)`
   position: absolute;
   right: 1rem;
 `;
-
