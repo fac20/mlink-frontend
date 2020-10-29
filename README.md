@@ -29,10 +29,10 @@ We were set on a mission by our Product Owner, Usama, to create a mobile-first w
 
 ## Team
 
-- [Amber](https://github.com/amberrignell)
-- [Khadija](https://github.com/khadija-nur)
-- [Shaya  🥺](https://github.com/fairyaksh)
-- [Glenroy - Terence (Terry):boom:](https://github.com/RunGT)
+- [Amber :angel:](https://github.com/amberrignell)
+- [Khadija :fairy: ](https://github.com/khadija-nur)
+- [Shaya  :mermaid:	](https://github.com/fairyaksh)
+- [Glenroy - Terence (Terry) :boom:](https://github.com/RunGT)
 
 ## Design Week
 ## Tech Stack 
@@ -47,13 +47,21 @@ We were set on a mission by our Product Owner, Usama, to create a mobile-first w
 - Netlify
 - PostgresQL
 
-
-
-
-
-
 ## Sprint One
 ## Sprint Two
 ## Installation
 ## Bugs  
-## Acknowledgement
+
+## Acknowledgement :1st_place_medal:
+
+Thank you to everyone who helped us - whether it was through code or words of encouragement.
+
+:superhero: _Special_ thanks to our heroes: :superhero:
+
+* Ivo
+* Joe
+* Izaak
+* Reda
+* Sofia
+
+Most importantly, a big pat on the back for us, the dream team! :cloud:	:stars:	
