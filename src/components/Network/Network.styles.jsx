@@ -37,6 +37,7 @@ export const SearchInput = styled.input`
 
 export const FlexDiv = styled.div`
 	display: flex;
+    flex-direction: row;
 	justify-content: space-between;
 	align-items: ${props => (props.alignItems ? props.alignItems : null)};
 `;
