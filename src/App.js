@@ -16,11 +16,6 @@ import query from "./utils/SearchQueries";
 import PageNotFound from "./components/PageNotFound/PageNotFound.jsx";
 
 export default function App() {
-  // React.useEffect(() => {
-  //   const input = "%Doe%";
-  //   query(input);
-  // }, []);
-
   return (
     <Router>
       <main>

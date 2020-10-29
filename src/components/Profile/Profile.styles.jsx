@@ -58,30 +58,3 @@ export const EditIcon = styled(Pencil)`
   position: absolute;
   right: 1rem;
 `;
-
-/*
-// section - light-blue 
-- back button
-- profile pic
-- description
-  - name
-  - degrees
-  - job title
-  - speciality
-- edit icon
-*/
-
-/*
-ProfileBody
-- UserInfo
-- UserInfoDropdown
-- Joined 
-*/
-/*
-//dropdown
-- onclick show more info
-  - render component with the info
-
-- change button display
-- 
-*/
