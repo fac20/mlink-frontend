@@ -36,6 +36,21 @@ We were set on a mission by our Product Owner, Usama, to create a mobile-first w
 
 ## Design Week
 ## Tech Stack 
+
+- React.js
+- Figma
+- Jira
+- GraphQL
+- Hasura
+- Heroku
+- Netlify
+- PostgresQL
+
+
+
+
+
+
 ## Sprint One
 ## Sprint Two
 ## Installation
