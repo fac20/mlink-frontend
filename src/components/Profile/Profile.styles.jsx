@@ -50,8 +50,11 @@ export const ProfilePic = styled(PersonOutline)`
   position: absolute;
 `;
 
-export const Description = styled.section``;
-export const Text = styled.p``;
+export const Description = styled.section`
+display: flex;
+flex-direction: column;
+float: right;`;
+export const Text = styled.span``;
 
 export const EditIcon = styled(Pencil)`
   bottom: 2rem;

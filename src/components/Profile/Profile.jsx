@@ -18,8 +18,8 @@ import {
 } from "./Profile.styles";
 
 export default function Profile() {
-  const userId = { userId: 1 };
-  const [profileInfo, setProfileInfo] = React.useState("");
+  const userId = { userId: 2 };
+  const [profileInfo, setProfileInfo] = React.useState([]);
   const [readMore, setReadMore] = React.useState(false);
 
   React.useEffect(() => {
@@ -36,60 +36,97 @@ export default function Profile() {
       </>
     );
   }
+  
+    let name = profileInfo.headerInfo[0].full_name;
+    let speciality = profileInfo.headerInfo[0].speciality.speciality;
+    let medSchool = profileInfo.Medical_School[0].medical_school;
+    let examDate = profileInfo.Postgraduate_Exams[0].exam_date;
+    let pdExam = profileInfo.Postgraduate_Exams[0].postgrad_exam.postgrad_exam;
 
-  console.log(profileInfo);
+    let jobStart = profileInfo.Previous_Jobs[0].job_start;
+    let jobEnd = profileInfo.Previous_Jobs[0].job_end;
+    let jobTitle =profileInfo.Previous_Jobs[0].job_title.job_title;
+
+
+// job title
+
   return (
+    // Header stuff
     <UserProfile>
-      {
-        Object.keys(profileInfo).map(function (key, index) {
-          console.log(key);
-          console.log(profileInfo.key);
-          // return (key === "headerInfo"?
-          return (
-            <ProfileHeader>
-              <Button>
-                <BlueBackArrow size="37" />
+      <ProfileHeader>
+        <Button>
+          <BlueBackArrow size="37" />
+        </Button>
+        <ProfilePic size="97" />
+          <Description>
+            <h2>{name}</h2>
+            <Text>{pdExam}</Text>
+            <Text>FY2 Doctor</Text>
+            <Text>{speciality}</Text>
+          </Description>
+        <EditIcon size="27" />
+      </ProfileHeader>
+
+      {/*  main body */}
+      <ProfileBody>
+  
+        <UserInfo>
+              <Section>
+                  <Subtitle>Previous Job</Subtitle>
+                  <Button onClick={() => setReadMore(!readMore)}>
+                    <ReadMoreArrow size="32" readMore={readMore} />
+                  </Button>
+              </Section>
+              <Text>{jobTitle}</Text>
+              <br/>
+              <Text>({jobStart})</Text> - <Text>({jobEnd})</Text>
+              {readMore && (
+                <>
+                <Text>lorem ipsum</Text>
+                <Text>lorem ipsum time time</Text>
+                </>
+              )}
+        </UserInfo>
+
+        <UserInfo>
+          <Section>
+              <Subtitle>Medical school</Subtitle>
+              <Button onClick={() => setReadMore(!readMore)}>
+                <ReadMoreArrow size="32" readMore={readMore} />
               </Button>
-              <ProfilePic size="97" />
-              <Description>
-                <Text>{profileInfo.key[0].full_name}</Text>
-                <Text>{}</Text>
-                <Text>{}</Text>
-              </Description>
-              <EditIcon size="27" />
-            </ProfileHeader>
-          );
-        })
-        // : key === "Medical_School"?
+          </Section>
+          <Text>{medSchool}</Text>
+          {readMore && (
+            <>
+            <Text>lorem ipsum</Text>
+            <Text>lorem ipsum time time</Text>
+            </>
+          )}
+        </UserInfo>
 
-        // <ProfileHeader>
-        //   <Button>
-        //     <BlueBackArrow size="37" />
-        //   </Button>
-        //   <ProfilePic size="97" />
-        //   <Description>
-        // <Text>{}</Text>
-        // <Text>{}</Text>
-        // <Text>{}</Text>
-        //   </Description>
-        //   <EditIcon size="27" />
-        // </ProfileHeader>
-        // : key === ""
-
-        // )
-        // })
-
-        /*
-          //  Loop through the returned object
-          // for each element :
-              if its a header then assign it to the correct compos
-            if not then assign each title to the section after replacing the underscore with a space
-
-          */
-      }
+        <UserInfo>
+          <Section>
+              <Subtitle>Postgraduate Exams</Subtitle>
+              <Button onClick={() => setReadMore(!readMore)}>
+                <ReadMoreArrow size="32" readMore={readMore} />
+              </Button>
+          </Section>
+          <Text>{pdExam}</Text>
+          <br/>
+          <Text>({examDate})</Text>
+          {readMore && (
+            <>
+            <Text>lorem ipsum</Text>
+            <Text>lorem ipsum time time</Text>
+            </>
+          )}
+        </UserInfo>
+      </ProfileBody>
     </UserProfile>
+
   );
 }
+
 
 // const [jobTitles, setJobTitles] = React.useState("");
 
@@ -122,13 +159,17 @@ export default function Profile() {
 //   queryGraphql(query).then((result) => console.log(result.data.users));
 // }, []);
 
-{
+// {
   /* <select>
   {jobTitles.map((x) => {
     return <option>{x}</option>;
   })}
 </select> */
-}
+// }
+
+
+
+
 
 // <ProfileHeader>
 // <Button>
@@ -161,3 +202,11 @@ export default function Profile() {
 // </UserInfo>
 // </ProfileBody>
 // </UserProfile>
+  
+        /*
+          //  Loop through the returned object
+          // for each element :
+              if its a header then assign it to the correct compos
+            if not then assign each title to the section after replacing the underscore with a space
+
+          */
