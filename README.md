@@ -10,7 +10,7 @@
 [![GitHub license](https://img.shields.io/badge/License-MIT-green.svg)](https://shields.io/)
 [![GitHub contributors](https://img.shields.io/badge/Contributors-4-blue.svg)](https://GitHub.com/fac20/mlink-frontend/graphs/contributors/)
 [![GitHub issues](https://img.shields.io/badge/Issues-5-orange.svg)](https://GitHub.com/fac20/mlink-frontend/issues/)
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e295f912-489a-4f4d-98e5-e864e357238d/deploy-status)](https://app.netlify.com/sites/sad-panini-eb240f/deploys)
 
 
 ## Available Scripts
