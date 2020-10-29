@@ -35,14 +35,14 @@ export default function App() {
           <Route path="/signup" exact>
             <SignUpForm />
           </Route>
-          <Route path="/404" exact>
-            <PageNotFound />
-          </Route>
           <Route path="/network" exact>
             <NetworkPage />
           </Route>
           <Route path="/dashboard" exact>
             <Dashboard />
+          </Route>
+          <Route>
+            <PageNotFound />
           </Route>
           {/* 
           <Route path="/edit-profile" exact>

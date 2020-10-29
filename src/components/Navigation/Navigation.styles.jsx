@@ -1,12 +1,8 @@
 import styled from "styled-components";
 import { GetStartedBtn } from "../Onboarding/Onboarding.styles.jsx";
 
-// background-color: ${(props) =>
-//     props.currentPage === props.buttonName ? "var(--main-pink)" : !props.currentPage ? "var(--main-pink)" : "white"};
-// //
 export const Nav = styled.nav`
   display: flex;
-  /* flex-direction: row;*/
   align-self: center;
   position: fixed;
   bottom: 10px;
