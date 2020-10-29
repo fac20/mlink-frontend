@@ -21,10 +21,11 @@
 - [Sprint Two](#Sprint-Two)
 - [Installation](#Installation)
 - [Bugs](#Bugs)
-- [Acknowledgement](#Acknowledgement)
+- [Acknowledgement](#Acknowledgement-:1st_place_medal:)
 
 ## Mission :rocket:	                                                                                                                                                                                                                                                                                    
 [Link to our website](https://mlink.netlify.app/)
+<br>
 We were set on a mission by our Product Owner, Usama, to create a mobile-first web application that allows health professionals to network with each other. 
 
 ## Team
