@@ -12,7 +12,6 @@ function NetworkPage() {
   const [networkQuery, setNetworkQuery] = React.useState([]);
 
   React.useEffect(() => {
-    //query to get the jobtitles back (found through the hasura console)
     const networkQuery = `
         query MyQuery {
             users {
@@ -47,11 +46,6 @@ function NetworkPage() {
               aria-label="Search through your network"
               placeholder="Search my network..."
             />
-            {/* Reusing the GetStartedBtn compontent for the search button. Inline styling is used to reset margin instead of creating
-            a new component */}
-            {/* <SearchButton style={{ "width": "80px", "height": "30px", "font-size": "14px", "margin": "0"}}>
-                    Search
-                </SearchButton> */}
           </Form>
         </SearchWrapper>
       </NetworkWrapper>

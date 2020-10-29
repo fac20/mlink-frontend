@@ -1,12 +1,8 @@
 import React from "react";
-<<<<<<< HEAD
 import { DotDiv, Loader } from "../Dashboard/Dashboard.styles.jsx";
 import profileQueries from "../../utils/ProfileQueries.js";
 import { withRouter, Link } from 'react-router-dom';
-// withRouter can be used for back button - history
-=======
 
->>>>>>> main
 import {
   UserProfile,
   Button,
@@ -24,11 +20,8 @@ import {
   AvatarDiv,
   EditDiv
 } from "./Profile.styles";
-<<<<<<< HEAD
 import avatar from "../../assets/images/avatar.svg";
 import Joined from "../../assets/images/Joined.svg";
-=======
->>>>>>> main
 
 export default function Profile() {
   const userId = { userId: 2 };
@@ -61,10 +54,7 @@ export default function Profile() {
   let jobTitle =profileInfo.Previous_Jobs[0].job_title.job_title;
 
 
-// job title
-// withRouter(({ history }) => { }) ----- onClick={() => history.goBack()}
   return (
-    // Header stuff
     <UserProfile>
       <ProfileHeader>
         <Link to="/dashboard">
@@ -83,10 +73,8 @@ export default function Profile() {
         </DescriptionDiv>
         <EditDiv>
           <EditIcon size="27" />
-<<<<<<< HEAD
         </EditDiv>
       </ProfileHeader>
-      {/*  main body */}
       <ProfileBody>
   
         <UserInfo>
@@ -110,17 +98,10 @@ export default function Profile() {
 
         <UserInfo>
           <Section>
-=======
-        </ProfileHeader>
-        <ProfileBody>
-          <UserInfo>
-            <Section>
->>>>>>> main
               <Subtitle>Medical school</Subtitle>
               <Button onClick={() => setReadMore(!readMore)}>
                 <ReadMoreArrow size="32" readMore={readMore} />
               </Button>
-<<<<<<< HEAD
           </Section>
           <Text>{medSchool}</Text>
           <br/>
@@ -157,107 +138,3 @@ export default function Profile() {
 
   );
 };
-
-
-
-// const [jobTitles, setJobTitles] = React.useState("");
-
-// React.useEffect(() => {
-//   const query = `query GetUser {
-//       users(where: {full_name: {_eq: "Jane Doe"}}) {
-//         id
-//         bio
-//         current_job_speciality
-//         current_job_start
-//         current_job_title
-//         current_job_workplace
-//         current_location
-//         degree_end
-//         degree_start
-//         degree_title
-//         email
-//         full_name
-//         gmc_number
-//         medical_school
-//         open_to_collaboration
-//         open_to_giving_advice
-//         phone_number
-//         titles_list {
-//           title
-//         }
-//       }
-//     }`;
-
-//   queryGraphql(query).then((result) => console.log(result.data.users));
-// }, []);
-
-// {
-  /* <select>
-  {jobTitles.map((x) => {
-    return <option>{x}</option>;
-  })}
-</select> */
-// }
-
-
-
-
-
-// <ProfileHeader>
-// <Button>
-//   <BlueBackArrow size="37" />
-// </Button>
-// <ProfilePic size="97" />
-// <Description>
-//   <Text></Text>
-// </Description>
-// <EditIcon size="27" />
-// </ProfileHeader>
-
-// <ProfileBody>
-// <UserInfo>
-//   <Section>
-//     <Subtitle>Medical school</Subtitle>
-//     <Button onClick={() => setReadMore(!readMore)}>
-//       <ReadMoreArrow size="32" readMore={readMore} />
-//     </Button>
-//   </Section>
-
-//   <Text>lorem ipsum {readMore ? "hello" : "bye"}</Text>
-//   <Text>lorem ipsum time time</Text>
-//   {readMore && (
-//     <>
-//       <Text>lorem ipsum</Text>
-//       <Text>lorem ipsum time time</Text>
-//     </>
-//   )}
-// </UserInfo>
-// </ProfileBody>
-// </UserProfile>
-  
-        /*
-          //  Loop through the returned object
-          // for each element :
-              if its a header then assign it to the correct compos
-            if not then assign each title to the section after replacing the underscore with a space
-
-          */
-
-      
-=======
-            </Section>
-            <Text>lorem ipsum {readMore ? "hello" : "bye"}</Text>
-            <Text>lorem ipsum time time</Text>
-            {readMore && (
-              <>
-                <Text>lorem ipsum</Text>
-                <Text>lorem ipsum time time</Text>
-              </>
-            )}
-          </UserInfo>
-        </ProfileBody>
-      </UserProfile>
-    </>
-  );
-}
->>>>>>> main
