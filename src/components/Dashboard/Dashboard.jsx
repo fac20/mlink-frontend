@@ -4,7 +4,7 @@ import dashboardQueries from "../../utils/dashboardQueries";
 import { ColumnSection, Count, RowSection, Subtitle, DashboardBody } from "./Dashboard.styles";
 import { DotDiv, Loader } from "./Dashboard.styles";
 
-export default function Dashboard({fallback, fallbackDelay}) {
+export default function Dashboard({ fallback, fallbackDelay }) {
   // create user's id variable to use when fetching the connection data
   const userInfo = { userId: 1, userLocation: "London" };
   const [totalCount, setTotalCount] = React.useState("");
@@ -17,16 +17,13 @@ export default function Dashboard({fallback, fallbackDelay}) {
   if (totalCount.length === 0) {
     return (
       <>
-    <Loader>
-      <h3>
-        Finding your connections
-      </h3>
-    </Loader>
-      <DotDiv></DotDiv>
+        <Loader>
+          <h3>Finding your connections</h3>
+        </Loader>
+        <DotDiv></DotDiv>
       </>
-    )
+    );
   }
-
 
   return (
     <DashboardBody>
