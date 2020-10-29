@@ -1,21 +1,27 @@
 import React from "react";
 import { DotDiv, Loader } from "../Dashboard/Dashboard.styles.jsx";
 import profileQueries from "../../utils/ProfileQueries.js";
+import { withRouter, Link } from 'react-router-dom';
+// withRouter can be used for back button - history
 import {
   UserProfile,
   Button,
   BlueBackArrow,
   ProfileHeader,
-  ProfilePic,
-  Description,
+  DescriptionDiv,
   Text,
   EditIcon,
   ReadMoreArrow,
   Subtitle,
   ProfileBody,
   UserInfo,
-  Section
+  Section,
+  Img,
+  AvatarDiv,
+  EditDiv
 } from "./Profile.styles";
+import avatar from "../../assets/images/avatar.svg";
+import Joined from "../../assets/images/Joined.svg";
 
 export default function Profile() {
   const userId = { userId: 2 };
@@ -37,36 +43,41 @@ export default function Profile() {
     );
   }
   
-    let name = profileInfo.headerInfo[0].full_name;
-    let speciality = profileInfo.headerInfo[0].speciality.speciality;
-    let medSchool = profileInfo.Medical_School[0].medical_school;
-    let examDate = profileInfo.Postgraduate_Exams[0].exam_date;
-    let pdExam = profileInfo.Postgraduate_Exams[0].postgrad_exam.postgrad_exam;
+  let name = profileInfo.headerInfo[0].full_name;
+  let speciality = profileInfo.headerInfo[0].speciality.speciality;
+  let medSchool = profileInfo.Medical_School[0].medical_school;
+  let examDate = profileInfo.Postgraduate_Exams[0].exam_date;
+  let pdExam = profileInfo.Postgraduate_Exams[0].postgrad_exam.postgrad_exam;
 
-    let jobStart = profileInfo.Previous_Jobs[0].job_start;
-    let jobEnd = profileInfo.Previous_Jobs[0].job_end;
-    let jobTitle =profileInfo.Previous_Jobs[0].job_title.job_title;
+  let jobStart = profileInfo.Previous_Jobs[0].job_start;
+  let jobEnd = profileInfo.Previous_Jobs[0].job_end;
+  let jobTitle =profileInfo.Previous_Jobs[0].job_title.job_title;
 
 
 // job title
-
+// withRouter(({ history }) => { }) ----- onClick={() => history.goBack()}
   return (
     // Header stuff
     <UserProfile>
       <ProfileHeader>
-        <Button>
-          <BlueBackArrow size="37" />
-        </Button>
-        <ProfilePic size="97" />
-          <Description>
-            <h2>{name}</h2>
-            <Text>{pdExam}</Text>
-            <Text>FY2 Doctor</Text>
-            <Text>{speciality}</Text>
-          </Description>
-        <EditIcon size="27" />
+        <Link to="/dashboard">
+          <Button>
+            <BlueBackArrow size="37" />
+          </Button> 
+        </Link>
+        <AvatarDiv>
+          <Img alt="user avatar" src={avatar}/>
+        </AvatarDiv>
+        <DescriptionDiv>
+          <Text><h2>{name}</h2></Text>
+          <Text>{pdExam}</Text>
+          <Text>FY2 Doctor</Text>
+          <Text>{speciality}</Text>
+        </DescriptionDiv>
+        <EditDiv>
+          <EditIcon size="27" />
+        </EditDiv>
       </ProfileHeader>
-
       {/*  main body */}
       <ProfileBody>
   
@@ -80,10 +91,11 @@ export default function Profile() {
               <Text>{jobTitle}</Text>
               <br/>
               <Text>({jobStart})</Text> - <Text>({jobEnd})</Text>
+              <br/>
               {readMore && (
                 <>
                 <Text>lorem ipsum</Text>
-                <Text>lorem ipsum time time</Text>
+                <Text>lorem ipsum</Text>
                 </>
               )}
         </UserInfo>
@@ -96,10 +108,11 @@ export default function Profile() {
               </Button>
           </Section>
           <Text>{medSchool}</Text>
+          <br/>
           {readMore && (
             <>
             <Text>lorem ipsum</Text>
-            <Text>lorem ipsum time time</Text>
+            <Text>lorem ipsum</Text>
             </>
           )}
         </UserInfo>
@@ -114,18 +127,22 @@ export default function Profile() {
           <Text>{pdExam}</Text>
           <br/>
           <Text>({examDate})</Text>
+          <br/>
           {readMore && (
             <>
             <Text>lorem ipsum</Text>
-            <Text>lorem ipsum time time</Text>
+            <Text>lorem ipsum</Text>
             </>
           )}
         </UserInfo>
       </ProfileBody>
+      <img src={Joined} />
+
     </UserProfile>
 
   );
-}
+};
+
 
 
 // const [jobTitles, setJobTitles] = React.useState("");
@@ -210,3 +227,5 @@ export default function Profile() {
             if not then assign each title to the section after replacing the underscore with a space
 
           */
+
+      

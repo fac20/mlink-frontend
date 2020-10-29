@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ArrowBackIos } from "@styled-icons/material-twotone/ArrowBackIos";
-import { PersonOutline } from "@styled-icons/material-sharp/PersonOutline";
+// import { avatar as ProfilePic } from "../../assets/images/avatar.svg";
 import { Pencil } from "@styled-icons/ionicons-sharp/Pencil";
 import { ArrowDropDown } from "@styled-icons/material-rounded/ArrowDropDown";
 
@@ -34,9 +34,10 @@ export const ReadMoreArrow = styled(ArrowDropDown)`
 export const Button = styled.button`
   background-color: transparent;
   border: none;
+  cursor: pointer;
 `;
 
-export const ProfileHeader = styled.section`
+export const ProfileHeader = styled.div`
   background-color: var(--light-blue);
   border-radius: 0px 0px 10% 10%;
   height: 30vh;
@@ -44,17 +45,41 @@ export const ProfileHeader = styled.section`
   position: relative;
 `;
 
-export const ProfilePic = styled(PersonOutline)`
-  bottom: 0.5rem;
-  color: var(--main-pink);
-  position: absolute;
+export const AvatarDiv = styled.div`
+
 `;
 
-export const Description = styled.section`
-display: flex;
-flex-direction: column;
-float: right;`;
-export const Text = styled.span``;
+export const Img = styled.img`
+  /* margin-left: 120px;
+  margin-top: 100px; */
+  position: absolute;
+  top: 120px;
+  width: 117px;
+  @media (max-width: 500px) {
+    float: left;
+    
+   }
+`; 
+
+export const DescriptionDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 3.5rem;
+  right: 17rem;
+  @media (max-width: 500px) {
+    top: 1rem;
+    right: 2rem;
+   }
+`;
+
+
+export const Text = styled.span`
+  text-align: right;
+`;
+
+export const EditDiv = styled.div`
+`;
 
 export const EditIcon = styled(Pencil)`
   bottom: 2rem;
@@ -62,29 +87,3 @@ export const EditIcon = styled(Pencil)`
   right: 1rem;
 `;
 
-/*
-// section - light-blue 
-- back button
-- profile pic
-- description
-  - name
-  - degrees
-  - job title
-  - speciality
-- edit icon
-*/
-
-/*
-ProfileBody
-- UserInfo
-- UserInfoDropdown
-- Joined 
-*/
-/*
-//dropdown
-- onclick show more info
-  - render component with the info
-
-- change button display
-- 
-*/
