@@ -15,13 +15,6 @@
 
 - [Mission](#Mission)
 - [Team](#Team)
-
-- [Amber](https://github.com/amberrignell)
-- [Khadija](https://github.com/khadija-nur)
-- [Shaya 🥺](https://github.com/fairyaksh)
-- [Glenroy - Terence (Terry):boom:](https://github.com/RunGT)
-
-
 - [Design Week](#Design-Week)
 - [Tech Stack](#Tech-Stack)
 - [Sprint One](#Sprint-One)
@@ -32,6 +25,12 @@
 
 ## Intro
 ## Team
+
+- [Amber](https://github.com/amberrignell)
+- [Khadija](https://github.com/khadija-nur)
+- [Shaya 🥺](https://github.com/fairyaksh)
+- [Glenroy - Terence (Terry):boom:](https://github.com/RunGT)
+
 ## Design Week
 ## Tech Stack 
 ## Sprint One
