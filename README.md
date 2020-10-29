@@ -38,6 +38,7 @@ We were set on a mission by our Product Owner, Usama, to create a mobile-first w
 ## Tech Stack 
 
 - React.js
+- Javascript
 - Figma
 - Jira
 - GraphQL
