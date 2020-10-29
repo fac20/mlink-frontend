@@ -2,24 +2,23 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { GetStartedBtn, PageWrapper } from "../Onboarding/Onboarding.styles";
 import { Form, H1, Labels, Input } from "../Profile/ProfileSetup.styles";
-import { RegisterText, TextDiv, RegisterButton, AHref, FlexDiv, AlignStartWrapper  } from "./Login.styles.";
+import { RegisterText, TextDiv, RegisterButton, AHref, FlexDiv, AlignStartWrapper } from "./Login.styles.";
 import { FaRegEyeSlash } from "react-icons/fa";
 
 function LoginForm() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [inputType, setInputType] = useState("password");
-    const [error, setError] = useState();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [inputType, setInputType] = useState("password");
+  const [error, setError] = useState();
 
-    const RegisterFunc = () => {
-      return <Link to="/signup">Register</Link>;
-    };
+  const RegisterFunc = () => {
+    return <Link to="/signup">Register</Link>;
+  };
 
-
-    return (
-      <PageWrapper>
-        <H1 style={{ color: "black", "line-height": "30px" }}>Login</H1>
-        <Form>
+  return (
+    <PageWrapper>
+      <H1 style={{ color: "black", "line-height": "30px" }}>Login</H1>
+      <Form>
         <AlignStartWrapper>
           <Labels htmlFor="email">Email</Labels>
           <Input
@@ -27,7 +26,7 @@ function LoginForm() {
             id="email"
             type="email"
             value={email}
-            onChange={event => {
+            onChange={(event) => {
               setEmail(event.target.value);
             }}
             required
@@ -40,34 +39,32 @@ function LoginForm() {
               id="password"
               type={inputType}
               value={password}
-              onChange={event => {
+              onChange={(event) => {
                 setPassword(event.target.value);
               }}
               required
             />
             <div
-              onMouseEnter={() => setInputType(currentType => "text")}
-              onMouseLeave={() => setInputType(currentType => "password")}>
-              <FaRegEyeSlash style={{ "position": "absolute", "top": "37.5%", "right": "42%"}} />
+              onMouseEnter={() => setInputType((currentType) => "text")}
+              onMouseLeave={() => setInputType((currentType) => "password")}
+            >
+              <FaRegEyeSlash style={{ position: "absolute", top: "37.5%", right: "42%" }} />
             </div>
           </FlexDiv>
         </AlignStartWrapper>
-          <GetStartedBtn
-            style={{ margin: "auto", "margin-top": "36.6px" }}
-            type="submit"
-          >
-            Login
-          </GetStartedBtn>
+        <GetStartedBtn style={{ margin: "auto", "margin-top": "36.6px" }} type="submit">
+          Login
+        </GetStartedBtn>
 
-          <TextDiv>
-            <RegisterText>Don’t have an account? </RegisterText>
-            <RegisterButton>
-              <AHref href="/signup"> Register </AHref>
-            </RegisterButton>
-          </TextDiv>
-        </Form>
-      </PageWrapper>
-    );
+        <TextDiv>
+          <RegisterText>Don’t have an account? </RegisterText>
+          <RegisterButton>
+            <Link to="/signup">Register</Link>
+          </RegisterButton>
+        </TextDiv>
+      </Form>
+    </PageWrapper>
+  );
 }
 
 export default LoginForm;
