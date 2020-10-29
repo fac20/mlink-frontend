@@ -11,9 +11,9 @@
 [![GitHub issues](https://img.shields.io/badge/Issues-5-orange.svg)](https://GitHub.com/fac20/mlink-frontend/issues/)
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Naereen/)
 
-## Table of content
+## Content
 
-- [Mission](#Mission)
+- [Mission](#Mission-rocket)
 - [Team](#Team)
 - [Design Week](#Design-Week)
 - [Tech Stack](#Tech-Stack)
@@ -23,12 +23,15 @@
 - [Bugs](#Bugs)
 - [Acknowledgement](#Acknowledgement)
 
-## Intro
+## Mission :rocket:	                                                                                                                                                                                                                                                                                    
+[Link to our website](https://mlink.netlify.app/)
+We were set on a mission by our Product Owner, Usama, to create a mobile-first web application that allows health professionals to network with each other. 
+
 ## Team
 
 - [Amber](https://github.com/amberrignell)
 - [Khadija](https://github.com/khadija-nur)
-- [Shaya 🥺](https://github.com/fairyaksh)
+- [Shaya  🥺](https://github.com/fairyaksh)
 - [Glenroy - Terence (Terry):boom:](https://github.com/RunGT)
 
 ## Design Week
