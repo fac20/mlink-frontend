@@ -36,6 +36,9 @@ We were set on a mission by our Product Owner, Usama, to create a mobile-first w
 - [Glenroy - Terence (Terry) :boom:](https://github.com/RunGT)
 
 ## Design Week
+
+![](https://i.imgur.com/deAdrPE.png=250x250)
+
 ## Tech Stack 
 
 - React.js
