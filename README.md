@@ -1,4 +1,6 @@
-# MLINK
+[![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Naereen/)
+
+# MLINK 
 <p align="center">
 <img alt="mlink logo" width="200" src="src/assets/images/logo1_transparent.png"/>
 </p>
@@ -10,7 +12,6 @@
 [![GitHub issues](https://img.shields.io/badge/Issues-5-orange.svg)](https://GitHub.com/fac20/mlink-frontend/issues/)
 
 
-This project was  [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/Naereen/)
 
 ## Available Scripts
 
