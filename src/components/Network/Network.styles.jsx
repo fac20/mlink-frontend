@@ -34,3 +34,9 @@ export const SearchInput = styled.input`
     width: 296px;
     text-align-last: center;
 `;
+
+export const FlexDiv = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: ${props => (props.alignItems ? props.alignItems : null)};
+`;

@@ -1,15 +1,21 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import profileicon from "../../assets/images/profileicon.svg";
 import requesticon from "../../assets/images/requesticon.svg";
-import styled from "styled-components";
 import { Input } from "../Profile/ProfileSetup.styles";
-import { GetStartedBtn as SearchButton } from "../Onboarding/Onboarding.styles";
-import { SearchInput, Form, SearchWrapper, NetworkWrapper, ProfileImg, RequestImg } from "./Network.styles";
+import { GetStartedBtn as NavigationButtons } from "../Onboarding/Onboarding.styles";
+import { SearchInput, Form, SearchWrapper, NetworkWrapper, ProfileImg, RequestImg, FlexDiv } from "./Network.styles";
 import queryHelpers from "../../utils/queryHelper";
 
 function NetworkPage() {
   const [networkQuery, setNetworkQuery] = React.useState([]);
+
+  // const params = useParams(); 
+  // const network= params.network;
+  // console.log("hey", params);
+
+  const [currentPage, setCurrentPage] = React.useState("network");
+
 
   React.useEffect(() => {
     const networkQuery = `
@@ -48,6 +54,20 @@ function NetworkPage() {
             />
           </Form>
         </SearchWrapper>
+
+        <FlexDiv alignItems="center">
+						<Link to="/network">
+            <NavigationButtons>Network</NavigationButtons>
+						</Link>
+				</FlexDiv>
+
+        <FlexDiv alignItems="center">
+						<Link to="/dashboard">
+              <NavigationButtons>Dashboard</NavigationButtons>
+						</Link>
+				</FlexDiv>
+
+
       </NetworkWrapper>
     </>
   );
