@@ -18,6 +18,7 @@ export const Input = styled.input`
   height: 50.96px;
   border: none;
   text-align-last: center;
+  position: relative;
 `;
 
 export const DropInput = styled.select`

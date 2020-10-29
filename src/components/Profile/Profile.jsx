@@ -1,5 +1,5 @@
 import React from "react";
-import { queryGraphql } from "../../utils/SearchQueries.js";
+// import { queryGraphql } from "../../utils/SearchQueries.js";
 import {
   UserProfile,
   Button,
@@ -19,7 +19,7 @@ import {
 // current job
 // previous job
 // medical school
-// postgr
+// postgrad exams
 
 export default function Profile() {
   const [readMore, setReadMore] = React.useState(false);

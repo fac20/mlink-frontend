@@ -1,4 +1,3 @@
-import react from "react";
 import styled from "styled-components";
 import { ArrowBackIos } from "@styled-icons/material-twotone/ArrowBackIos";
 import { PersonOutline } from "@styled-icons/material-sharp/PersonOutline";
