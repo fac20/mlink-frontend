@@ -16,7 +16,7 @@ export default function Dashboard({ fallback, fallbackDelay }) {
   //The loading code below works but will cause a bug.
   // If the user doesn't have any matches the page will load the H3 forever.
   // Need a forward / back button or setInterval timer to skip the page?
-  if (totalCount.length === 0) {
+  if (totalCount === undefined) {
     return (
       <>
         <Loader>

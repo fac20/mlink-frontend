@@ -1,15 +1,17 @@
 import React from "react";
-
 import profileicon from "../../assets/images/profileicon.svg";
 import requesticon from "../../assets/images/requesticon.svg";
-import styled from "styled-components";
 import { Input } from "../Profile/ProfileSetup.styles";
-import { GetStartedBtn as SearchButton } from "../Onboarding/Onboarding.styles";
-import { SearchInput, Form, SearchWrapper, NetworkWrapper, ProfileImg, RequestImg } from "./Network.styles";
+import Navigation from "../Navigation/Navigation.jsx";
+import { SearchInput, Form, SearchWrapper, NetworkWrapper, ProfileImg, RequestImg, FlexDiv } from "./Network.styles";
 import queryHelpers from "../../utils/queryHelper";
 
 function NetworkPage() {
   const [networkQuery, setNetworkQuery] = React.useState([]);
+
+  // const params = useParams();
+  // const network= params.network;
+  console.log("hey", window.location.pathname);
 
   React.useEffect(() => {
     const networkQuery = `
@@ -48,6 +50,7 @@ function NetworkPage() {
             />
           </Form>
         </SearchWrapper>
+        <Navigation />
       </NetworkWrapper>
     </>
   );
