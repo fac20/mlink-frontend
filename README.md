@@ -14,33 +14,41 @@
 ## Content
 
 - [Mission](#Mission-rocket)
-- [Team](#Team)
-- [Design Week](#Design-Week)
-- [Tech Stack](#Tech-Stack)
+- [Team](#Team-briefcase)
+- [Design Week](#Design-Week-art)
+- [Tech Stack](#Tech-Stack-pancakes)
 - [Sprint One](#Sprint-One)
 - [Sprint Two](#Sprint-Two)
-- [Installation](#Installation)
-- [Bugs](#Bugs)
-- [Next Steps](#Next-Steps)
+- [Installation](#Installation-computer)
+- [Documentation] (#Hasura-and-GQL-documentation-books)
+- [Bugs](#Bugs-bug)
+- [Next Steps](#Next-Steps-writing_hand)
 - [Acknowledgement](#Acknowledgement-1st_place_medal)
 
 ## Mission :rocket:
 
-[Link to our website](https://mlink.netlify.app/) <br> We were set on a mission by our Product Owner, Usama, to create a
+[We are proud to present our website](https://mlink.netlify.app/) 
+<br> We were set on a mission by our Product Owner, Usama, to create a
 mobile-first web application that allows health professionals to network with each other.
 
-## Team
+You can also visit our :point_right:[backend repo](https://github.com/fac20/mlink-backend) :point_left:	to see how our data was implemented!
+
+## Team :briefcase:	
 
 - [Amber :angel:](https://github.com/amberrignell)
 - [Khadija :fairy: ](https://github.com/khadija-nur)
 - [Shaya :mermaid: ](https://github.com/fairyaksh)
 - [Glenroy - Terence (Terry) :boom:](https://github.com/RunGT)
 
-## Design Week
+## Design Week :art:	
 
-![](https://i.imgur.com/deAdrPE.png=250x250)
+We came up with three different prototypes; the first and second one without our product owner and then a final prototype after taking Usama's goals and MVP priorities into consideration.
+<br>
+:point_right:	[View our Figma design process here!](https://www.figma.com/file/ScvYrnmlkUleZJQFL0BZPq/MLink-wireframe) :point_left:	
+<br>
+![Figma](https://i.imgur.com/deAdrPE.png=250x250)
 
-## Tech Stack
+## Tech Stack :pancakes:
 
 - React.js
 - Javascript
@@ -52,11 +60,16 @@ mobile-first web application that allows health professionals to network with ea
 - Netlify
 - PostgresQL
 
-## Sprint One
+## Sprint One 
+
+**Backend**
 
 ## Sprint Two
 
-## Installation
+**Frontend**
+
+
+## Installation :computer:	
 
 - Clone the repo `git clone https://github.com/fac20/mlink-frontend.git`
 - Install npm packages using `npm install`
@@ -65,19 +78,26 @@ mobile-first web application that allows health professionals to network with ea
     \_process.env.REACT_APP_<variable-name>_ without the need to install any packages like \_dotenv_
     [more info in the create-react-app docs](https://create-react-app.dev/docs/adding-custom-environment-variables/)
 
-## Known Bugs
+## Hasura and GQL documentation :books:	
+
+- Hasura endpoint: :point_right: https://mlink-app.herokuapp.com/v1/graphql :point_left:
+
+## Known Bugs :bug:	
 
 - Readmore buttons in profile page - when one of these buttons are clicked it expands all the entries for each button
 <details>
 <summary> How to fix this:</summary>
+    
 - Set a unique state for each component that's using the dropdown
 </details>
 - Data to be displayed on the dashboard and network pages are not being returned even though it's being fetched.
-- User Id and Location are currenly hardcoded and should be changed once auhorisation has been set up.
+- User Id and Location are currenly hardcoded and should be changed once authorisation has been set up.
+- Authorisation! :lock:
 
-## Next Steps
+## Next Steps :writing_hand:	
 
 - [ ] Fix all the above bugs
+- [ ] Tests to be implemented
 - [ ] Use a GraphQl client like [URQL](https://formidable.com/open-source/urql/) or
       [Apollo](https://www.apollographql.com/) for state management to easily fetch, cache, and modify application data,
       while automatically updating the UI.
