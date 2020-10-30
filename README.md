@@ -106,14 +106,12 @@ We came up with three different prototypes; the first and second one without our
 - [ ] Error handling - Create appropriate display messages for when the user encounters unexpected conditions
 - [ ] Configure CORS on Hasura to be specific to certain domains and subdomains (it's currently default which is \*)
 
-<details>
-<summary> Resources</summary>
+#### Resources
+
 - [Using JWTs for GraphQL Authorization with Hasura](https://auth0.com/blog/using-jwts-for-graphql-authorization-with-hasura/)  
 - [URQL Docs](https://formidable.com/open-source/urql/docs/)  
 - [Apollo Docs](https://www.apollographql.com/docs/react/)  
 - [Configure CORS on Hasura](https://hasura.io/docs/1.0/graphql/core/deployment/graphql-engine-flags/config-examples.html#configure-cors)
-
-</details>
 
 ## Acknowledgement :1st_place_medal:
 
