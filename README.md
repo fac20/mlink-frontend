@@ -20,17 +20,18 @@
 - [Sprint One](#Sprint-One)
 - [Sprint Two](#Sprint-Two)
 - [Installation](#Installation-computer)
-- [Documentation] (#Hasura-and-GQL-documentation-books)
+- [Hasura and GQL documentation] (#Hasura-and-GQL-documentation-books)
 - [Bugs](#Bugs-bug)
 - [Next Steps](#Next-Steps-writing_hand)
 - [Acknowledgement](#Acknowledgement-1st_place_medal)
 
 ## Mission :rocket:
 
-[We are proud to present our website](https://mlink.netlify.app/) 
-<br> We were set on a mission by our Product Owner, Usama, to create a
+We were set on a mission by our Product Owner, Usama, to create a
 mobile-first web application that allows health professionals to network with each other.
-
+<br>
+:confetti_ball:	[We are proud to present our website! (Click here!)](https://mlink.netlify.app/) :confetti_ball:	
+<br>
 You can also visit our :point_right:[backend repo](https://github.com/fac20/mlink-backend) :point_left:	to see how our data was implemented!
 
 ## Team :briefcase:	
