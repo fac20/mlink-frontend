@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { DotDiv, Loader } from "../Dashboard/Dashboard.styles";
 import profileicon from "../../assets/images/profileicon.svg";
 import requesticon from "../../assets/images/requesticon.svg";
 import { Input } from "../Profile/ProfileSetup.styles";
@@ -8,10 +10,7 @@ import queryHelpers from "../../utils/queryHelper";
 
 function NetworkPage() {
   const [networkQuery, setNetworkQuery] = React.useState([]);
-
-  // const params = useParams();
-  // const network= params.network;
-  console.log("hey", window.location.pathname);
+  const pathname = window.location.pathname;
 
   React.useEffect(() => {
     const networkQuery = `
@@ -30,13 +29,14 @@ function NetworkPage() {
         `;
     queryHelpers(networkQuery);
   });
-  console.log(queryHelpers(networkQuery));
 
   return (
     <>
       <div>
         <RequestImg alt="request" src={requesticon} />
-        <ProfileImg alt="profile" src={profileicon} />
+        <Link to="/profile">
+          <ProfileImg alt="profile" src={profileicon} currentPage={pathname}/>
+        </Link>
       </div>
       <NetworkWrapper>
         <SearchWrapper>

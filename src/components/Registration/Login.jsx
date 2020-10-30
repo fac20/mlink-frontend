@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { GetStartedBtn, PageWrapper } from "../Onboarding/Onboarding.styles";
 import { Form, H1, Labels, Input } from "../Profile/ProfileSetup.styles";
-import { RegisterText, TextDiv, RegisterButton, AHref, FlexDiv, AlignStartWrapper } from "./Login.styles.";
+import { RegisterText, TextDiv, RegisterButton, FlexDiv, AlignStartWrapper , EyeDiv} from "./Login.styles.";
 import { FaRegEyeSlash } from "react-icons/fa";
 
 function LoginForm() {
@@ -48,7 +48,9 @@ function LoginForm() {
               onMouseEnter={() => setInputType((currentType) => "text")}
               onMouseLeave={() => setInputType((currentType) => "password")}
             >
-              <FaRegEyeSlash style={{ position: "absolute", top: "37.5%", right: "42%" }} />
+              <EyeDiv>
+              <FaRegEyeSlash />
+              </EyeDiv>
             </div>
           </FlexDiv>
         </AlignStartWrapper>
@@ -59,7 +61,7 @@ function LoginForm() {
         <TextDiv>
           <RegisterText>Don’t have an account? </RegisterText>
           <RegisterButton>
-            <Link to="/signup">Register</Link>
+            <Link to="/signup" style={{ "text-decoration": "none", "color": "black"}}>Register</Link>
           </RegisterButton>
         </TextDiv>
       </Form>

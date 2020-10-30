@@ -1,11 +1,11 @@
 {
 	"short_name": "Mlink",
-	"name": "Create React App Sample",
+	"name": "Mlink",
 	"icons": [
 		{
-			"src": "logo.png",
+			"src": "favicon2.ico",
 			"sizes": "64x64 32x32 24x24 16x16",
-			"type": "image/png"
+			"type": "image/ico"
 		}
 	],
 	"start_url": ".",
