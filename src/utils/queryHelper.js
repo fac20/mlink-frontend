@@ -1,9 +1,10 @@
 export default (query, variables, tableName, objectKeyName, setStateFunction) => {
+  const id_token = localStorage.getItem(id_token);
   fetch("https://tfb-mlink.herokuapp.com/v1/graphql", {
     method: "POST",
     headers: {
       "content-type": "application/json",
-      "x-hasura-admin-secret": "secretKey"
+      Authorization: `Bearer ${id_token}`
     },
     body: JSON.stringify({ query: query, variables: variables })
   })

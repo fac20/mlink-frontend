@@ -2,7 +2,8 @@ import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Profile = () => {
-  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
+  const { user, isAuthenticated, getAccessTokenSilently, getIdTokenClaims } = useAuth0();
+  console.log("Profile -> user", user);
   const [userMetadata, setUserMetadata] = React.useState(null);
 
   React.useEffect(() => {
@@ -15,26 +16,22 @@ const Profile = () => {
           scope: "read:current_user"
         });
 
-        console.log(accessToken);
+        const claims = await getIdTokenClaims();
+        // if you need the raw id_token, you can access it
+        // using the __raw property
+        const id_token = claims.__raw;
+        console.log("token", id_token);
+        console.log("user", user);
+        localStorage.setItem("id_token", id_token);
 
         const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`;
-
-        const metadataResponse = await fetch(userDetailsByIdUrl, {
-          headers: {
-            Authorization: `Bearer ${accessToken}`
-          }
-        });
-
-        const { user_metadata } = await metadataResponse.json();
-
-        setUserMetadata(user_metadata);
+        console.log("details in url", userDetailsByIdUrl);
       } catch (e) {
         console.log(e.message);
       }
     };
-
     getUserMetadata();
-  }, []);
+  }, [user]);
 
   return (
     isAuthenticated && (
