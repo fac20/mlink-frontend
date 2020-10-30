@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+export const Logo = styled.img`
+  position: absolute;
+  left: 1vw;
+  top: 1vw;
+  width: 60px;
+`;
+
 export const PageWrapper = styled.div`
   margin: 2rem auto;
   display: flex;

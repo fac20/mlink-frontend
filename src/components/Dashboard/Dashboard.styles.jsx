@@ -38,6 +38,15 @@ export const DotDiv = styled.div`
   border: 3px solid hsl(197, 100%, 40%, 100);
   border-top: 3px solid transparent;
   border-radius: 50%;
-  animation: spin .5s linear 4s infinite;
+  animation: spin .5s linear 0s infinite;
   margin: auto;
+  @keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to{
+    transform: rotate(359deg);
+  }
+}
+
 `;

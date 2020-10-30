@@ -5,7 +5,6 @@ import { FlexDiv } from "../Network/Network.styles.jsx";
 import { Nav, NavigationButtons } from "./Navigation.styles.jsx";
 
 export default function Navigation() {
-  console.log("hey", window.location.pathname);
   const pathname = window.location.pathname;
 
   return (

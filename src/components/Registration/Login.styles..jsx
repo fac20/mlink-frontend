@@ -10,6 +10,7 @@ export const FlexDiv = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: right;
+  position: relative;
 `;
 
 export const RegisterText = styled.span`
@@ -38,7 +39,8 @@ export const RegisterButton = styled.button`
   color: black;
 `;
 
-export const AHref = styled.a`
-  text-decoration: none;
-  color: black; ;
+export const EyeDiv = styled.span`
+  position: absolute;
+  right: 15px;
+  bottom: 10px;
 `;
