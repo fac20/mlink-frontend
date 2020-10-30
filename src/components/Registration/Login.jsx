@@ -9,11 +9,6 @@ function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [inputType, setInputType] = useState("password");
-  const [error, setError] = useState();
-
-  const RegisterFunc = () => {
-    return <Link to="/signup">Register</Link>;
-  };
 
   return (
     <PageWrapper>
