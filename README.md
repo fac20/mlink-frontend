@@ -20,7 +20,7 @@
 - [Sprint One](#Sprint-One)
 - [Sprint Two](#Sprint-Two)
 - [Installation](#Installation-computer)
-- [Hasura and GQL documentation] (#Hasura-and-GQL-documentation-books)
+- [Documentation] (#Documentation-books)
 - [Bugs](#Bugs-bug)
 - [Next Steps](#Next-Steps-writing_hand)
 - [Acknowledgement](#Acknowledgement-1st_place_medal)
@@ -79,7 +79,7 @@ We came up with three different prototypes; the first and second one without our
     \_process.env.REACT_APP_<variable-name>_ without the need to install any packages like \_dotenv_
     [more info in the create-react-app docs](https://create-react-app.dev/docs/adding-custom-environment-variables/)
 
-## Hasura and GQL documentation :books:	
+## Documentation :books:	
 
 - Hasura endpoint: :point_right: https://mlink-app.herokuapp.com/v1/graphql :point_left:
 
