@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FlexDiv } from "../Network/Network.styles.jsx";
 
+import { FlexDiv } from "../Network/Network.styles.jsx";
 import { Nav, NavigationButtons } from "./Navigation.styles.jsx";
 
 export default function Navigation() {

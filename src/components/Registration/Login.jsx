@@ -1,19 +1,25 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+
 import { GetStartedBtn, PageWrapper } from "../Onboarding/Onboarding.styles";
 import { Form, H1, Labels, Input } from "../Profile/ProfileSetup.styles";
-import { RegisterText, TextDiv, RegisterButton, FlexDiv, AlignStartWrapper , EyeDiv} from "./Login.styles.";
+import { RegisterText, TextDiv, RegisterButton, FlexDiv, AlignStartWrapper, EyeDiv } from "./Registration.styles";
 import { FaRegEyeSlash } from "react-icons/fa";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [inputType, setInputType] = useState("password");
+  const history = useHistory();
 
   return (
     <PageWrapper>
       <H1 style={{ color: "black", "line-height": "30px" }}>Login</H1>
-      <Form>
+      <Form
+        onSubmit={() => {
+          history.push("/dashboard");
+        }}
+      >
         <AlignStartWrapper>
           <Labels htmlFor="email">Email</Labels>
           <Input
@@ -44,7 +50,7 @@ function LoginForm() {
               onMouseLeave={() => setInputType((currentType) => "password")}
             >
               <EyeDiv>
-              <FaRegEyeSlash />
+                <FaRegEyeSlash />
               </EyeDiv>
             </div>
           </FlexDiv>
@@ -56,7 +62,9 @@ function LoginForm() {
         <TextDiv>
           <RegisterText>Don’t have an account? </RegisterText>
           <RegisterButton>
-            <Link to="/signup" style={{ "text-decoration": "none", "color": "black"}}>Register</Link>
+            <Link to="/signup" style={{ "text-decoration": "none", color: "black" }}>
+              Register
+            </Link>
           </RegisterButton>
         </TextDiv>
       </Form>

@@ -1,9 +1,3 @@
-// Dropdown query
-// job titles)
-// return all job titles
-// map through all job titles
-// display in a dropdown select option format
-
 export function jobTitleQuery() {
   const jobTitleQuery = `query MyQuery {
     job_titles {

@@ -1,7 +1,8 @@
 import queryHelper from "./queryHelper";
 
-export default (setTotalCount, userInfo) => {
+export default (userInfo, setTotalCount) => {
   const { userId, userLocation } = userInfo;
+  console.log(userId, userLocation);
   // contained query that gets all connections for different cases and returns a json with all the data
   const dashboardQuery = `query  Myquery ($userId: Int!, $userLocation: String!){
     sameMedSchool: users(where: {medicalSchoolByMedicalSchool: {users: {id: {_eq:  $userId}}}}) {
@@ -28,5 +29,6 @@ export default (setTotalCount, userInfo) => {
        current_location
      }
    }`;
+
   return queryHelper(dashboardQuery, { userId, userLocation }, "", "", setTotalCount);
 };
