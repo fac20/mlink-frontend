@@ -58,15 +58,22 @@ mobile-first web application that allows health professionals to network with ea
 
 ## Installation
 
-## Bugs
+- Clone the repo `git clone https://github.com/fac20/mlink-frontend.git`
+- Install npm packages using `npm install`
+- Create a .env file and store the hasura secret key within it
+  - The variable name should begin with _REACT_APP\_\_ so that you can access it using
+    \_process.env.REACT_APP_<variable-name>_ without the need to install any packages like \_dotenv_
+    [more info in the create-react-app docs](https://create-react-app.dev/docs/adding-custom-environment-variables/)
 
-- [ ] Dropdown feature in Profile
+## Known Bugs
+
+- Readmore buttons in profile page - when one of these buttons are clicked it expands all the entries for each button
 <details>
 <summary> How to fix this:</summary>
 - Set a unique state for each component that's using the dropdown
 </details>
-- [ ]
-- [ ]
+- Data to be displayed on the dashboard and network pages are not being returned even though it's being fetched.
+- User Id and Location are currenly hardcoded and should be changed once auhorisation has been set up.
 
 ## Next Steps
 
@@ -80,9 +87,9 @@ mobile-first web application that allows health professionals to network with ea
 
 <details>
 <summary> Resources</summary>
-- [Using JWTs for GraphQL Authorization with Hasura](https://auth0.com/blog/using-jwts-for-graphql-authorization-with-hasura/)
-- [URQL Docs](https://formidable.com/open-source/urql/docs/)
-- [Apollo Docs](https://www.apollographql.com/docs/react/)
+- [Using JWTs for GraphQL Authorization with Hasura](https://auth0.com/blog/using-jwts-for-graphql-authorization-with-hasura/)  
+- [URQL Docs](https://formidable.com/open-source/urql/docs/)  
+- [Apollo Docs](https://www.apollographql.com/docs/react/)  
 - [Configure CORS on Hasura](https://hasura.io/docs/1.0/graphql/core/deployment/graphql-engine-flags/config-examples.html#configure-cors)
 
 </details>
@@ -95,8 +102,8 @@ Thank you to everyone who helped us - whether it was through code or words of en
 
 - Ivo
 - Joe
+- Sofia
 - Izaak
 - Reda
-- Sofia
 
 Most importantly, a big pat on the back for us, the dream team! :cloud: :stars:

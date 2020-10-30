@@ -13,6 +13,7 @@ export default (query, variables, tableName, objectKeyName, setStateFunction) =>
     })
     .then((json) => {
       let dataArray = json.data;
+      console.log(dataArray);
       if (tableName !== "" && objectKeyName !== "") {
         dataArray = dataArray[tableName];
         dataArray.sort((a, b) => a[objectKeyName].localeCompare(b[objectKeyName]));
