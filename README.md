@@ -20,7 +20,7 @@
 - [Sprint One](#Sprint-One)
 - [Sprint Two](#Sprint-Two)
 - [Installation](#Installation-computer)
-- [Documentation] (#Documentation-books)
+- [Documentation](#Documentation-books)
 - [Bugs](#Bugs-bug)
 - [Next Steps](#Next-Steps-writing_hand)
 - [Acknowledgement](#Acknowledgement-1st_place_medal)
