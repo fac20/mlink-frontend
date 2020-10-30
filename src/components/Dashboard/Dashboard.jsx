@@ -1,22 +1,18 @@
 import React from "react";
-import dashboardQueries from "../../utils/dashboardQueries";
 
+import dashboardQueries from "../../utils/dashboardQueries";
 import { ColumnSection, Count, RowSection, Subtitle, DashboardBody } from "./Dashboard.styles";
 import { DotDiv, Loader } from "./Dashboard.styles";
 
-export default function Dashboard({ fallback, fallbackDelay }) {
-  // create user's id variable to use when fetching the connection data
+export default function Dashboard() {
   const userInfo = { userId: 1, userLocation: "London" };
   const [totalCount, setTotalCount] = React.useState("");
 
   React.useEffect(() => {
-    dashboardQueries(setTotalCount, userInfo);
+    dashboardQueries(userInfo, setTotalCount);
   }, []);
 
-  //The loading code below works but will cause a bug.
-  // If the user doesn't have any matches the page will load the H3 forever.
-  // Need a forward / back button or setInterval timer to skip the page?
-  if (totalCount === undefined) {
+  if (totalCount === undefined || "") {
     return (
       <>
         <Loader>
@@ -26,6 +22,7 @@ export default function Dashboard({ fallback, fallbackDelay }) {
       </>
     );
   }
+  console.log(totalCount);
 
   return (
     <DashboardBody>

@@ -1,6 +1,5 @@
 import queryHelper from "./queryHelper";
 
-// Medical schools with a user id
 export default (userId, setProfileInfo) => {
   // all queries for the profile page except for current job
   const profileQuery = `query MyQuery ($userId: Int!){

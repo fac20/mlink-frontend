@@ -1,7 +1,8 @@
 import React from "react";
+
 import { DotDiv, Loader } from "../Dashboard/Dashboard.styles.jsx";
 import profileQueries from "../../utils/ProfileQueries.js";
-import { withRouter, Link } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 import {
   UserProfile,
@@ -27,22 +28,23 @@ export default function Profile() {
   const userId = { userId: 2 };
   const [profileInfo, setProfileInfo] = React.useState([]);
   const [readMore, setReadMore] = React.useState(false);
+  const history = useHistory();
 
   React.useEffect(() => {
     profileQueries(userId, setProfileInfo);
-  }, []);
+  }, [userId]);
 
   if (profileInfo.length === 0) {
     return (
       <>
         <Loader>
-          <h3>Finding your connections</h3>
+          <h3>Loading your profile</h3>
         </Loader>
         <DotDiv></DotDiv>
       </>
     );
   }
-  
+
   let name = profileInfo.headerInfo[0].full_name;
   let speciality = profileInfo.headerInfo[0].speciality.speciality;
   let medSchool = profileInfo.Medical_School[0].medical_school;
@@ -51,22 +53,21 @@ export default function Profile() {
 
   let jobStart = profileInfo.Previous_Jobs[0].job_start;
   let jobEnd = profileInfo.Previous_Jobs[0].job_end;
-  let jobTitle =profileInfo.Previous_Jobs[0].job_title.job_title;
-
+  let jobTitle = profileInfo.Previous_Jobs[0].job_title.job_title;
 
   return (
     <UserProfile>
       <ProfileHeader>
-        <Link to="/dashboard">
-          <Button>
-            <BlueBackArrow size="37" />
-          </Button> 
-        </Link>
+        <Button onClick={() => history.goBack()}>
+          <BlueBackArrow size="37" />
+        </Button>
         <AvatarDiv>
-          <Img alt="user avatar" src={avatar}/>
+          <Img alt="user avatar" src={avatar} />
         </AvatarDiv>
         <DescriptionDiv>
-          <Text><h2>{name}</h2></Text>
+          <Text>
+            <h2>{name}</h2>
+          </Text>
           <Text>{pdExam}</Text>
           <Text>FY2 Doctor</Text>
           <Text>{speciality}</Text>
@@ -76,65 +77,62 @@ export default function Profile() {
         </EditDiv>
       </ProfileHeader>
       <ProfileBody>
-  
-        <UserInfo>
-              <Section>
-                  <Subtitle>Previous Job</Subtitle>
-                  <Button onClick={() => setReadMore(!readMore)}>
-                    <ReadMoreArrow size="32" readMore={readMore} />
-                  </Button>
-              </Section>
-              <Text>{jobTitle}</Text>
-              <br/>
-              <Text>({jobStart})</Text> - <Text>({jobEnd})</Text>
-              <br/>
-              {readMore && (
-                <>
-                <Text>lorem ipsum</Text>
-                <Text>lorem ipsum</Text>
-                </>
-              )}
-        </UserInfo>
-
         <UserInfo>
           <Section>
-              <Subtitle>Medical school</Subtitle>
-              <Button onClick={() => setReadMore(!readMore)}>
-                <ReadMoreArrow size="32" readMore={readMore} />
-              </Button>
+            <Subtitle>Previous Job</Subtitle>
+            <Button onClick={() => setReadMore(!readMore)}>
+              <ReadMoreArrow size="32" readMore={readMore} />
+            </Button>
           </Section>
-          <Text>{medSchool}</Text>
-          <br/>
+          <Text>{jobTitle}</Text>
+          <br />
+          <Text>({jobStart})</Text> - <Text>({jobEnd})</Text>
+          <br />
           {readMore && (
             <>
-            <Text>lorem ipsum</Text>
-            <Text>lorem ipsum</Text>
+              <Text>lorem ipsum</Text>
+              <Text>lorem ipsum</Text>
             </>
           )}
         </UserInfo>
 
         <UserInfo>
           <Section>
-              <Subtitle>Postgraduate Exams</Subtitle>
-              <Button onClick={() => setReadMore(!readMore)}>
-                <ReadMoreArrow size="32" readMore={readMore} />
-              </Button>
+            <Subtitle>Medical school</Subtitle>
+            <Button onClick={() => setReadMore(!readMore)}>
+              <ReadMoreArrow size="32" readMore={readMore} />
+            </Button>
           </Section>
-          <Text>{pdExam}</Text>
-          <br/>
-          <Text>({examDate})</Text>
-          <br/>
+          <Text>{medSchool}</Text>
+          <br />
           {readMore && (
             <>
-            <Text>lorem ipsum</Text>
-            <Text>lorem ipsum</Text>
+              <Text>lorem ipsum</Text>
+              <Text>lorem ipsum</Text>
+            </>
+          )}
+        </UserInfo>
+
+        <UserInfo>
+          <Section>
+            <Subtitle>Postgraduate Exams</Subtitle>
+            <Button onClick={() => setReadMore(!readMore)}>
+              <ReadMoreArrow size="32" readMore={readMore} />
+            </Button>
+          </Section>
+          <Text>{pdExam}</Text>
+          <br />
+          <Text>({examDate})</Text>
+          <br />
+          {readMore && (
+            <>
+              <Text>lorem ipsum</Text>
+              <Text>lorem ipsum</Text>
             </>
           )}
         </UserInfo>
       </ProfileBody>
       <img src={Joined} />
-
     </UserProfile>
-
   );
-};
+}

@@ -25,24 +25,9 @@ jobs:
       - run:
           name: run tests and generate coverage
           command: npm test -- --coverage --watchAll=false
-      # - run:
-      #     name: coverage report
-      #     command: jest --runInBand --ci  --reporters=default  --coverage --coverageDirectory=coverage
       - codecov/upload:
           file: "./coverage/clover.xml"
           token: d5e4b315-e50d-4c4a-bfe0-7d1f91e9c797
-
-  # Coverage:
-  #   docker:
-  #     - image: circleci/node:14.5.0
-  #   steps:
-  #     - attach_workspace:
-  #         at: ~/
-  #     - run:
-  #         name: Run tests and generate coverage report
-  #         command: npm test -- --coverage --watchAll=false
-  #     - codecov/upload:
-  #         file: './coverage/clover.xml'
 workflows:
   push:
     jobs:

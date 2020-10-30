@@ -7,7 +7,7 @@ import { SearchInput, Form, SearchWrapper, NetworkWrapper, ProfileImg, RequestIm
 import queryHelpers from "../../utils/queryHelper";
 
 function NetworkPage() {
-  const [networkQuery, setNetworkQuery] = React.useState([]);
+  const [networkData, setNetworkData] = React.useState([]);
   const pathname = window.location.pathname;
 
   React.useEffect(() => {
@@ -25,15 +25,16 @@ function NetworkPage() {
           }
           
         `;
-    queryHelpers(networkQuery);
-  });
+    queryHelpers(networkQuery, "", "", "", setNetworkData);
+  }, []);
+  console.log(networkData);
 
   return (
     <>
       <div>
         <RequestImg alt="request" src={requestIcon} />
         <Link to="/profile">
-          <ProfileImg alt="profile" src={profileIcon} currentPage={pathname}/>
+          <ProfileImg alt="profile" src={profileIcon} currentPage={pathname} />
         </Link>
       </div>
       <NetworkWrapper>

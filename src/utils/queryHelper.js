@@ -1,9 +1,9 @@
 export default (query, variables, tableName, objectKeyName, setStateFunction) => {
-  fetch("https://tfb-mlink.herokuapp.com/v1/graphql", {
+  fetch("https://mlink-app.herokuapp.com/v1/graphql", {
     method: "POST",
     headers: {
       "content-type": "application/json",
-      "x-hasura-admin-secret": "secretKey"
+      "x-hasura-admin-secret": process.env.REACT_APP_HASURA_SECRET_KEY
     },
     body: JSON.stringify({ query: query, variables: variables })
   })
@@ -13,6 +13,7 @@ export default (query, variables, tableName, objectKeyName, setStateFunction) =>
     })
     .then((json) => {
       let dataArray = json.data;
+      console.log(dataArray);
       if (tableName !== "" && objectKeyName !== "") {
         dataArray = dataArray[tableName];
         dataArray.sort((a, b) => a[objectKeyName].localeCompare(b[objectKeyName]));
