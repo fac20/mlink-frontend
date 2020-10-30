@@ -1,7 +1,7 @@
 <h1 align="center"> MLINK </h1> 
     
 <p align="center">
-<img alt="mlink logo" width="200" src="src/assets/images/logo1_transparent.png"/>
+<img alt="mlink logo" width="200" src="src/assets/images/logo.png"/>
 </p>
 
 [![forthebadge](https://forthebadge.com/images/badges/powered-by-coffee.svg)](https://forthebadge.com)
@@ -21,7 +21,7 @@
 - [Sprint Two](#Sprint-Two)
 - [Installation](#Installation)
 - [Bugs](#Bugs)
-- [Acknowledgement](#Acknowledgement-:1st_place_medal:)
+- [Acknowledgement](#Acknowledgement-1st_place_medal)
 
 ## Mission :rocket:	                                                                                                                                                                                                                                                                                    
 [Link to our website](https://mlink.netlify.app/)
