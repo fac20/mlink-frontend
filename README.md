@@ -59,7 +59,7 @@ We came up with three different prototypes; the first and second one without our
 - Hasura
 - Heroku
 - Netlify
-- PostgresQL
+- PostgreSQL
 
 ## Sprint One 
 
