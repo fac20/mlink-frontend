@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 
 import { GetStartedBtn, PageWrapper } from "../Onboarding/Onboarding.styles";
 import { Form, H1, Labels, Input } from "../Profile/ProfileSetup.styles";
+import Auth0LoginButton from "./Auth0Login";
 import { RegisterText, TextDiv, RegisterButton, FlexDiv, AlignStartWrapper, EyeDiv } from "./Registration.styles";
 import { FaRegEyeSlash } from "react-icons/fa";
 
@@ -15,6 +16,7 @@ function LoginForm() {
   return (
     <PageWrapper>
       <H1 style={{ color: "black", "line-height": "30px" }}>Login</H1>
+
       <Form
         onSubmit={() => {
           history.push("/dashboard");
@@ -58,7 +60,7 @@ function LoginForm() {
         <GetStartedBtn style={{ margin: "auto", "margin-top": "36.6px" }} type="submit">
           Login
         </GetStartedBtn>
-
+        <Auth0LoginButton />
         <TextDiv>
           <RegisterText>Don’t have an account? </RegisterText>
           <RegisterButton>

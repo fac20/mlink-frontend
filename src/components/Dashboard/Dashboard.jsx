@@ -3,6 +3,11 @@ import React from "react";
 import dashboardQueries from "../../utils/dashboardQueries";
 import { ColumnSection, Count, RowSection, Subtitle, DashboardBody } from "./Dashboard.styles";
 import { DotDiv, Loader } from "./Dashboard.styles";
+import Navigation from "../Navigation/Navigation.jsx";
+import profileIcon from "../../assets/images/profileicon.svg";
+import requestIcon from "../../assets/images/requesticon.svg";
+import { ProfileImg, RequestImg } from "../Network/Network.styles.jsx";
+import { Link } from "react-router-dom";
 
 export default function Dashboard() {
   const userInfo = { userId: 1, userLocation: "London" };
@@ -27,6 +32,12 @@ export default function Dashboard() {
 
   return (
     <DashboardBody>
+      <div>
+        <RequestImg alt="request" src={requestIcon} />
+        <Link to="/profile">
+          <ProfileImg alt="profile" src={profileIcon} />
+        </Link>
+      </div>
       <Subtitle>You have {totalCount ? totalCount.length : ""} existing mlinks</Subtitle>
       <ColumnSection>
         <RowSection>
@@ -46,6 +57,7 @@ export default function Dashboard() {
           <Count>{totalCount ? totalCount.sameCity.length : ""}</Count>
         </RowSection>
       </ColumnSection>
+      <Navigation />
     </DashboardBody>
   );
 }
