@@ -6,13 +6,14 @@ import { DotDiv, Loader } from "./Dashboard.styles";
 
 export default function Dashboard() {
   const userInfo = { userId: 1, userLocation: "London" };
-  const [totalCount, setTotalCount] = React.useState("");
+  const [totalCount, setTotalCount] = React.useState();
 
   React.useEffect(() => {
+    console.log("useEffect");
     dashboardQueries(userInfo, setTotalCount);
   }, []);
 
-  if (totalCount === undefined || "") {
+  if (totalCount === undefined || totalCount === "") {
     return (
       <>
         <Loader>
@@ -22,27 +23,27 @@ export default function Dashboard() {
       </>
     );
   }
-  console.log(totalCount);
+  console.log(typeof totalCount);
 
   return (
     <DashboardBody>
-      <Subtitle>You have {totalCount.length} existing mlinks</Subtitle>
+      <Subtitle>You have {totalCount ? totalCount.length : ""} existing mlinks</Subtitle>
       <ColumnSection>
         <RowSection>
           <span>Members that attended the same medical School</span>
-          <Count>{totalCount.sameMedSchool.length}</Count>
+          <Count>{totalCount ? totalCount.sameMedSchool.length : ""}</Count>
         </RowSection>
         <RowSection>
           <span>Members that have the same specialisation</span>
-          <Count>{totalCount.sameSpecialisation.length}</Count>
+          <Count>{totalCount ? totalCount.sameSpecialisation.length : ""}</Count>
         </RowSection>
         <RowSection>
           <span>Members that work in the same workplace</span>
-          <Count>{totalCount.sameWorkplace.length}</Count>
+          <Count>{totalCount ? totalCount.sameWorkplace.length : ""}</Count>
         </RowSection>
         <RowSection>
           <span>Members that work in the same city</span>
-          <Count>{totalCount.sameCity.length}</Count>
+          <Count>{totalCount ? totalCount.sameCity.length : ""}</Count>
         </RowSection>
       </ColumnSection>
     </DashboardBody>

@@ -4,11 +4,12 @@ import profileIcon from "../../assets/images/profileicon.svg";
 import requestIcon from "../../assets/images/requesticon.svg";
 import Navigation from "../Navigation/Navigation.jsx";
 import { SearchInput, Form, SearchWrapper, NetworkWrapper, ProfileImg, RequestImg } from "./Network.styles";
-import queryHelpers from "../../utils/queryHelper";
+import { DotDiv, Loader } from "../Dashboard/Dashboard.styles.jsx";
+
+import queryHelper from "../../utils/queryHelper";
 
 function NetworkPage() {
   const [networkData, setNetworkData] = React.useState([]);
-  const pathname = window.location.pathname;
 
   React.useEffect(() => {
     const networkQuery = `
@@ -23,34 +24,67 @@ function NetworkPage() {
               }
             }
           }
-          
         `;
-    queryHelpers(networkQuery, "", "", "", setNetworkData);
+    queryHelper(networkQuery, {}, "", "", setNetworkData);
   }, []);
-  console.log(networkData);
+  console.log(networkData ? "bitch we won" : "");
 
+  // if (networkData === undefined || networkData === []) {
+  //   return (
+  //     <>
+  //       <Loader>
+  //         <h3>Finding your connections</h3>
+  //       </Loader>
+  //       <DotDiv></DotDiv>
+  //     </>
+  //   );
+  // }
+
+  /*
+  networkData.users.map((user) => {
+    user.full_name
+    user.speciality.speciality
+    user.workplace.workplace
+
+    return (
+
+
+    )
+
+  })
+  
+  */
   return (
     <>
       <div>
         <RequestImg alt="request" src={requestIcon} />
         <Link to="/profile">
-          <ProfileImg alt="profile" src={profileIcon} currentPage={pathname} />
+          <ProfileImg alt="profile" src={profileIcon} />
         </Link>
       </div>
-      <NetworkWrapper>
-        <SearchWrapper>
-          <Form onSubmit="">
-            <SearchInput
-              type="search"
-              id="network-search"
-              name="network-search"
-              aria-label="Search through your network"
-              placeholder="Search my network..."
-            />
-          </Form>
-        </SearchWrapper>
-        <Navigation />
-      </NetworkWrapper>
+      {networkData ? (
+        <NetworkWrapper>
+          <SearchWrapper>
+            <Form onSubmit="">
+              <SearchInput
+                type="search"
+                id="network-search"
+                name="network-search"
+                aria-label="Search through your network"
+                placeholder="Search my network..."
+              />
+            </Form>
+          </SearchWrapper>
+          <Navigation />
+        </NetworkWrapper>
+      ) : (
+        <>
+          <Loader>
+            <h3>Finding your connections</h3>
+          </Loader>
+          <DotDiv></DotDiv>
+        </>
+      )}
     </>
   );
 }
