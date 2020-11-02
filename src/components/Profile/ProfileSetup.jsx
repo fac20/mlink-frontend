@@ -85,11 +85,6 @@ function ProfileSetup() {
           {titles.map((x) => {
             return <option value={x.id}>{x.title}</option>;
           })}
-          {/* <option value="Target db">Mr</option>
-          <option value="Target db for miss">Miss</option>
-          <option value="Target db for Mrs">Mrs</option>
-          <option value="Target db for DR">Dr</option>
-          <option value="Target db for Prof">Prof</option> */}
         </DropInput>
         <br />
 
