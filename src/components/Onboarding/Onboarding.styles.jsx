@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+export const Logo = styled.img`
+  position: absolute;
+  left: 1vw;
+  top: 1vw;
+  width: 60px;
+`;
+
 export const PageWrapper = styled.div`
   margin: 2rem auto;
   display: flex;
@@ -47,7 +54,8 @@ export const Text = styled.h4`
 `;
 
 export const GetStartedBtn = styled.button`
-  background-color: var(--main-pink);
+  background-color: ${(props) =>
+    props.currentPage === props.buttonName ? "var(--main-pink)" : !props.currentPage ? "var(--main-pink)" : "white"};
   width: 241.35px;
   height: 2.5rem;
   border: none;
@@ -60,6 +68,7 @@ export const GetStartedBtn = styled.button`
   letter-spacing: 0em;
   margin-top: 8px;
   text-align: center;
-  color: #ffffff;
+  color: ${(props) =>
+    props.currentPage === props.buttonName ? " #ffffff" : !props.currentPage ? " #ffffff" : "var(--main-pink)"};
   cursor: pointer;
 `;

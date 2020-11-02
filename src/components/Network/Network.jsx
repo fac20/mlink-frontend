@@ -1,25 +1,17 @@
 import React from "react";
-import profileicon from "../../assets/images/profileicon.svg";
-import requesticon from "../../assets/images/requesticon.svg";
-import styled from "styled-components";
-import { Input } from "../Profile/ProfileSetup.styles";
-import { GetStartedBtn as SearchButton } from "../Onboarding/Onboarding.styles";
+import { Link } from "react-router-dom";
+import profileIcon from "../../assets/images/profileicon.svg";
+import requestIcon from "../../assets/images/requesticon.svg";
+import Navigation from "../Navigation/Navigation.jsx";
 import { SearchInput, Form, SearchWrapper, NetworkWrapper, ProfileImg, RequestImg } from "./Network.styles";
 import queryHelpers from "../../utils/queryHelper";
 
-// set connectsdata(result)
-// .map return <div>
-
-
 function NetworkPage() {
+  const [networkData, setNetworkData] = React.useState([]);
+  const pathname = window.location.pathname;
 
-    const [networkQuery, setNetworkQuery] = React.useState([]);
-    // const [speciality, setSpeciality] = React.useState([]);
-    // const [workplace, setWorkplace] = React.useState([]);
-    
-    React.useEffect(() => {
-        //query to get the jobtitles back (found through the hasura console)
-        const networkQuery = `
+  React.useEffect(() => {
+    const networkQuery = `
         query MyQuery {
             users {
               full_name
@@ -33,40 +25,34 @@ function NetworkPage() {
           }
           
         `;
-            queryHelpers(networkQuery)
-    })
-    console.log(queryHelpers(networkQuery));
+    queryHelpers(networkQuery, "", "", "", setNetworkData);
+  }, []);
+  console.log(networkData);
 
-    return(
-        <>
-
-        <div>
-        <RequestImg alt="request" src={requesticon} />
-        <ProfileImg alt="profile" src={profileicon} />
-        </div>
-        
-        <NetworkWrapper>
-            <SearchWrapper>
-            <Form onSubmit="">
-                <SearchInput 
-                type="search" 
-                id="network-search" 
-                name="network-search" 
-                aria-label="Search through your network" 
-                placeholder="Search my network..."
-                />
-            {/* Reusing the GetStartedBtn compontent for the search button. Inline styling is used to reset margin instead of creating
-            a new component */}
-                {/* <SearchButton style={{ "width": "80px", "height": "30px", "font-size": "14px", "margin": "0"}}>
-                    Search
-                </SearchButton> */}
-            </Form>
-            </SearchWrapper>
-        </NetworkWrapper>
-
-        </>
-    )
-
+  return (
+    <>
+      <div>
+        <RequestImg alt="request" src={requestIcon} />
+        <Link to="/profile">
+          <ProfileImg alt="profile" src={profileIcon} currentPage={pathname} />
+        </Link>
+      </div>
+      <NetworkWrapper>
+        <SearchWrapper>
+          <Form onSubmit="">
+            <SearchInput
+              type="search"
+              id="network-search"
+              name="network-search"
+              aria-label="Search through your network"
+              placeholder="Search my network..."
+            />
+          </Form>
+        </SearchWrapper>
+        <Navigation />
+      </NetworkWrapper>
+    </>
+  );
 }
 
 export default NetworkPage;
