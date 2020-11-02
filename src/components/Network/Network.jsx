@@ -29,31 +29,6 @@ function NetworkPage() {
   }, []);
   console.log(networkData ? "bitch we won" : "");
 
-  // if (networkData === undefined || networkData === []) {
-  //   return (
-  //     <>
-  //       <Loader>
-  //         <h3>Finding your connections</h3>
-  //       </Loader>
-  //       <DotDiv></DotDiv>
-  //     </>
-  //   );
-  // }
-
-  /*
-  networkData.users.map((user) => {
-    user.full_name
-    user.speciality.speciality
-    user.workplace.workplace
-
-    return (
-
-
-    )
-
-  })
-  
-  */
   return (
     <>
       <div>

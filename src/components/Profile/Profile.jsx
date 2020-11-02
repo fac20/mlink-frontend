@@ -53,7 +53,7 @@ export default function Profile() {
 
   React.useEffect(() => {
     profileQueries(userId, setProfileInfo);
-  }, [userId]);
+  }, []);
 
   if (profileInfo.length === 0) {
     return (
