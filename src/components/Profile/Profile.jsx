@@ -28,6 +28,7 @@ export default function Profile() {
   const userId = { userId: 2 };
   const [profileInfo, setProfileInfo] = React.useState([]);
   const [readMore, setReadMore] = React.useState(false);
+  const [currentSection, setCurrentSection] = React.useState("");
   const history = useHistory();
 
   React.useEffect(() => {
@@ -80,7 +81,12 @@ export default function Profile() {
         <UserInfo>
           <Section>
             <Subtitle>Previous Job</Subtitle>
-            <Button onClick={() => setReadMore(!readMore)}>
+            <Button
+              onClick={() => {
+                setReadMore(!readMore);
+                setCurrentSection("prevJob");
+              }}
+            >
               <ReadMoreArrow size="32" readMore={readMore} />
             </Button>
           </Section>
@@ -88,7 +94,7 @@ export default function Profile() {
           <br />
           <Text>({jobStart})</Text> - <Text>({jobEnd})</Text>
           <br />
-          {readMore && (
+          {readMore && currentSection === "prevJob" && (
             <>
               <Text>lorem ipsum</Text>
               <Text>lorem ipsum</Text>
@@ -99,13 +105,18 @@ export default function Profile() {
         <UserInfo>
           <Section>
             <Subtitle>Medical school</Subtitle>
-            <Button onClick={() => setReadMore(!readMore)}>
+            <Button
+              onClick={() => {
+                setReadMore(!readMore);
+                setCurrentSection("medSchool");
+              }}
+            >
               <ReadMoreArrow size="32" readMore={readMore} />
             </Button>
           </Section>
           <Text>{medSchool}</Text>
           <br />
-          {readMore && (
+          {readMore && currentSection === "medSchool" && (
             <>
               <Text>lorem ipsum</Text>
               <Text>lorem ipsum</Text>
@@ -116,7 +127,12 @@ export default function Profile() {
         <UserInfo>
           <Section>
             <Subtitle>Postgraduate Exams</Subtitle>
-            <Button onClick={() => setReadMore(!readMore)}>
+            <Button
+              onClick={() => {
+                setReadMore(!readMore);
+                setCurrentSection("pdExam");
+              }}
+            >
               <ReadMoreArrow size="32" readMore={readMore} />
             </Button>
           </Section>
@@ -124,7 +140,7 @@ export default function Profile() {
           <br />
           <Text>({examDate})</Text>
           <br />
-          {readMore && (
+          {readMore && currentSection === "pdExam" && (
             <>
               <Text>lorem ipsum</Text>
               <Text>lorem ipsum</Text>
