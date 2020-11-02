@@ -50,33 +50,9 @@ export default function Profile() {
   const [readMore, setReadMore] = React.useState(false);
   const history = useHistory();
 
-  const { user, getIdTokenClaims, getAccessTokenSilently } = useAuth0();
-
   React.useEffect(() => {
     profileQueries(userId, setProfileInfo);
-    const getUserMetadata = async () => {
-      const domain = "dev-t2n4419c.eu.auth0.com";
-
-      try {
-        const accessToken = await getAccessTokenSilently({
-          audience: `https://${domain}/api/v2/`,
-          scope: "read:current_user"
-        });
-
-        const claims = await getIdTokenClaims();
-        const id_token = claims.__raw;
-        console.log("token", id_token);
-        console.log("user", user);
-        localStorage.setItem("id_token", id_token);
-
-        const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`;
-        console.log("details in url", userDetailsByIdUrl);
-      } catch (e) {
-        console.log(e.message);
-      }
-    };
-    getUserMetadata();
-  }, [userId, user]);
+  }, [userId]);
 
   if (profileInfo.length === 0) {
     return (
