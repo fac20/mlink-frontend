@@ -12,6 +12,7 @@ export default function Dashboard() {
     dashboardQueries(userInfo, setTotalCount);
   }, []);
 
+  // dashboardQueries(userInfo, setTotalCount);
   if (totalCount === undefined || "") {
     return (
       <>

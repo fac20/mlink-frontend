@@ -17,7 +17,7 @@ function SignUpForm() {
       <H1 style={{ color: "black", "line-height": "30px" }}>Sign Up</H1>
       <Form
         onSubmit={() => {
-          history.push("/dashboard");
+          history.push("/setup");
         }}
       >
         <Labels htmlFor="email">Email</Labels>
