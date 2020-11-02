@@ -40,6 +40,20 @@ function NetworkPage() {
   //   );
   // }
 
+  /*
+  networkData.users.map((user) => {
+    user.full_name
+    user.speciality.speciality
+    user.workplace.workplace
+
+    return (
+
+
+    )
+
+  })
+  
+  */
   return (
     <>
       <div>
