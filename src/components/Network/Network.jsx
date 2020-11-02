@@ -8,7 +8,6 @@ import queryHelpers from "../../utils/queryHelper";
 
 function NetworkPage() {
   const [networkData, setNetworkData] = React.useState([]);
-  const pathname = window.location.pathname;
 
   React.useEffect(() => {
     const networkQuery = `
@@ -34,7 +33,7 @@ function NetworkPage() {
       <div>
         <RequestImg alt="request" src={requestIcon} />
         <Link to="/profile">
-          <ProfileImg alt="profile" src={profileIcon} currentPage={pathname} />
+          <ProfileImg alt="profile" src={profileIcon} />
         </Link>
       </div>
       <NetworkWrapper>
