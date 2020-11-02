@@ -1,7 +1,3 @@
-// import React from "react";
-// import ReactDOM from "react-dom";
-// import App from "./App";
-// import { Auth0Provider } from "@auth0/auth0-react";
 import "./index.css";
 
 // const dotenv = require("dotenv");
@@ -31,7 +27,7 @@ ReactDOM.render(
   <Auth0Provider
     domain="dev-t2n4419c.eu.auth0.com"
     clientId="E0ifO9k3QWne73Yqsv1Bq6pBoCjd1rnV"
-    redirectUri={"http://localhost:3000/setup"}
+    redirectUri={"https://mlink.netlify.app/setup"}
     audience="https://dev-t2n4419c.eu.auth0.com/api/v2/"
     scope="read:current_user update:current_user_metadata"
   >
