@@ -3,9 +3,23 @@ import { Link } from "react-router-dom";
 import profileIcon from "../../assets/images/profileicon.svg";
 import requestIcon from "../../assets/images/requesticon.svg";
 import Navigation from "../Navigation/Navigation.jsx";
-import { SearchInput, Form, SearchWrapper, NetworkWrapper, ProfileImg, RequestImg } from "./Network.styles";
 import { DotDiv, Loader } from "../Dashboard/Dashboard.styles.jsx";
 
+import {
+  SearchInput,
+  Form,
+  SearchWrapper,
+  NetworkWrapper,
+  ProfileImg,
+  ProfileAvatar,
+  ProfileImageDiv,
+  RequestImg,
+  Card,
+  UserInfoText,
+  TextWrapper,
+  UserName
+} from "./Network.styles";
+import avatar from "../../assets/images/avatar.svg";
 import queryHelper from "../../utils/queryHelper";
 
 function NetworkPage() {
@@ -27,33 +41,17 @@ function NetworkPage() {
         `;
     queryHelper(networkQuery, {}, "", "", setNetworkData);
   }, []);
-  console.log(networkData ? "bitch we won" : "");
-
-  // if (networkData === undefined || networkData === []) {
-  //   return (
-  //     <>
-  //       <Loader>
-  //         <h3>Finding your connections</h3>
-  //       </Loader>
-  //       <DotDiv></DotDiv>
-  //     </>
-  //   );
-  // }
-
-  /*
-  networkData.users.map((user) => {
-    user.full_name
-    user.speciality.speciality
-    user.workplace.workplace
-
+  if (!networkData) {
     return (
-
-
-    )
-
-  })
-  
-  */
+      <>
+        <Loader>
+          <h3>Finding your connections</h3>
+        </Loader>
+        <DotDiv></DotDiv>
+      </>
+    );
+  }
+  console.log(networkData);
   return (
     <>
       <div>
@@ -75,6 +73,20 @@ function NetworkPage() {
               />
             </Form>
           </SearchWrapper>
+          {networkData.users.map((user) => {
+            return (
+              <Card>
+                <ProfileImageDiv>
+                  <ProfileAvatar alt="user avatar" src={avatar} />
+                </ProfileImageDiv>
+                <TextWrapper>
+                  <UserName>{user.full_name}</UserName>
+                  <UserInfoText>{user.speciality.speciality}</UserInfoText>
+                  <UserInfoText>{user.workplace.workplace}</UserInfoText>
+                </TextWrapper>
+              </Card>
+            );
+          })}
           <Navigation />
         </NetworkWrapper>
       ) : (
