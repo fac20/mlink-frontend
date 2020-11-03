@@ -13,6 +13,7 @@ export const ColumnSection = styled.section`
 export const RowSection = styled.section`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 `;
 
 export const DashboardBody = styled.section`
@@ -21,32 +22,46 @@ export const DashboardBody = styled.section`
   width: 60%;
 `;
 
-export const Count = styled.span`
+export const CountContainer = styled.div`
+  position: relative;
+  border-radius: 50%;
   background-color: var(--main-pink);
+  width: 2rem;
+  height: 2rem;
+  @media (min-width: 640px) {
+    margin-bottom: 0.2rem;
+  }
 `;
 
-/* --------- Loader CSS --------- */ 
+export const Count = styled.span`
+  border-radius: 50%;
+  float: right;
+  background-color: var(--main-pink);
+  width: 2rem;
+  height: 2rem;
+`;
+
+/* --------- Loader CSS --------- */
 export const Loader = styled.div`
   margin-top: 250px;
   margin-left: 650px;
   width: fit-content;
 `;
 
-export const DotDiv = styled.div` 
+export const DotDiv = styled.div`
   width: 50px;
   height: 50px;
   border: 3px solid hsl(197, 100%, 40%, 100);
   border-top: 3px solid transparent;
   border-radius: 50%;
-  animation: spin .5s linear 0s infinite;
+  animation: spin 0.5s linear 0s infinite;
   margin: auto;
   @keyframes spin {
-  from {
-    transform: rotate(0);
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(359deg);
+    }
   }
-  to{
-    transform: rotate(359deg);
-  }
-}
-
 `;

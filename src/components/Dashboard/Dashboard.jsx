@@ -1,7 +1,7 @@
 import React from "react";
 
 import dashboardQueries from "../../utils/dashboardQueries";
-import { ColumnSection, Count, RowSection, Subtitle, DashboardBody } from "./Dashboard.styles";
+import { ColumnSection, Count, CountContainer, RowSection, Subtitle, DashboardBody } from "./Dashboard.styles";
 import { DotDiv, Loader } from "./Dashboard.styles";
 
 export default function Dashboard() {
@@ -31,19 +31,27 @@ export default function Dashboard() {
       <ColumnSection>
         <RowSection>
           <span>Members that attended the same medical School</span>
-          <Count>{totalCount ? totalCount.sameMedSchool.length : ""}</Count>
+          <CountContainer>
+            <Count>{totalCount ? totalCount.sameMedSchool.length : ""}</Count>
+          </CountContainer>
         </RowSection>
         <RowSection>
           <span>Members that have the same specialisation</span>
-          <Count>{totalCount ? totalCount.sameSpecialisation.length : ""}</Count>
+          <CountContainer>
+            <Count>{totalCount ? totalCount.sameSpecialisation.length : ""}</Count>
+          </CountContainer>
         </RowSection>
         <RowSection>
           <span>Members that work in the same workplace</span>
-          <Count>{totalCount ? totalCount.sameWorkplace.length : ""}</Count>
+          <CountContainer>
+            <Count>{totalCount ? totalCount.sameWorkplace.length : ""}</Count>
+          </CountContainer>
         </RowSection>
         <RowSection>
           <span>Members that work in the same city</span>
-          <Count>{totalCount ? totalCount.sameCity.length : ""}</Count>
+          <CountContainer>
+            <Count>{totalCount ? totalCount.sameCity.length : ""}</Count>
+          </CountContainer>
         </RowSection>
       </ColumnSection>
     </DashboardBody>
