@@ -116,8 +116,11 @@ export default function Profile() {
           <br />
           {readMore && currentSection === "prevJob" && (
             <>
-              <Text>lorem ipsum</Text>
-              <Text>lorem ipsum</Text>
+              <Text>Brownlow Health</Text>
+              <br />
+              <Text>({jobStart})</Text> - <Text>({jobEnd})</Text>
+              <br />
+              <Text>Student Health Centre- Brownlow Health</Text>
             </>
           )}
         </UserInfo>
@@ -138,8 +141,9 @@ export default function Profile() {
           <br />
           {readMore && currentSection === "medSchool" && (
             <>
-              <Text>lorem ipsum</Text>
-              <Text>lorem ipsum</Text>
+              <Text>Hull York Medical School</Text>
+              <br/>
+              <Text>Leicester Medical School</Text>
             </>
           )}
         </UserInfo>
@@ -162,8 +166,9 @@ export default function Profile() {
           <br />
           {readMore && currentSection === "pdExam" && (
             <>
-              <Text>lorem ipsum</Text>
-              <Text>lorem ipsum</Text>
+              <Text>NIMHANS</Text>
+              <br/>
+              <Text>NEET-PG</Text>
             </>
           )}
         </UserInfo>
