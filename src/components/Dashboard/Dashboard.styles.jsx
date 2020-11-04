@@ -13,6 +13,8 @@ export const ColumnSection = styled.section`
 export const RowSection = styled.section`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+
 `;
 
 export const DashboardBody = styled.section`
@@ -22,9 +24,23 @@ export const DashboardBody = styled.section`
 `;
 
 export const Count = styled.span`
+ border-radius: 50%;
+  float: right;
   background-color: var(--main-pink);
-`;
+  width: 2rem;
+  height: 2rem;`;
 
+
+export const CountContainer = styled.div`
+  position: relative;
+  border-radius: 50%;
+  background-color: var(--main-pink);
+  width: 2rem;
+  height: 2rem;
+  @media (min-width: 640px) {
+    margin-bottom: 0.2rem;
+  }
+`;
 /* --------- Loader CSS --------- */ 
 export const Loader = styled.div`
   margin-top: 250px;
