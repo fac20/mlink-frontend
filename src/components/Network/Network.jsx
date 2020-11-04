@@ -23,7 +23,7 @@ import avatar from "../../assets/images/avatar.svg";
 import queryHelper from "../../utils/queryHelper";
 
 function NetworkPage() {
-  const [networkData, setNetworkData] = React.useState([]);
+  const [networkData, setNetworkData] = React.useState("");
 
   React.useEffect(() => {
     const networkQuery = `
@@ -41,7 +41,7 @@ function NetworkPage() {
         `;
     queryHelper(networkQuery, {}, "", "", setNetworkData);
   }, []);
-  if (!networkData) {
+  if (!networkData || networkData === "" || networkData === undefined) {
     return (
       <>
         <Loader>
@@ -60,7 +60,14 @@ function NetworkPage() {
           <ProfileImg alt="profile" src={profileIcon} />
         </Link>
       </div>
-      {networkData ? (
+      {!networkData || networkData === "" || networkData === undefined ? (
+        <>
+          <Loader>
+            <h3>Finding your connections</h3>
+          </Loader>
+          <DotDiv></DotDiv>
+        </>
+      ) : (
         <NetworkWrapper>
           <SearchWrapper>
             <Form onSubmit="">
@@ -81,21 +88,14 @@ function NetworkPage() {
                 </ProfileImageDiv>
                 <TextWrapper>
                   <UserName>{user.full_name}</UserName>
-                  <UserInfoText>{user.speciality.speciality}</UserInfoText>
-                  <UserInfoText>{user.workplace.workplace}</UserInfoText>
+                  <UserInfoText>{user.speciality.speciality || "Has not specialised yet"}</UserInfoText>
+                  <UserInfoText>{user.workplace ? user.workplace.workplace : "Has not started working"}</UserInfoText>
                 </TextWrapper>
               </Card>
             );
           })}
           <Navigation />
         </NetworkWrapper>
-      ) : (
-        <>
-          <Loader>
-            <h3>Finding your connections</h3>
-          </Loader>
-          <DotDiv></DotDiv>
-        </>
       )}
     </>
   );
