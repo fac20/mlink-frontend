@@ -3,8 +3,21 @@ import { Link } from "react-router-dom";
 import profileIcon from "../../assets/images/profileicon.svg";
 import requestIcon from "../../assets/images/requesticon.svg";
 import Navigation from "../Navigation/Navigation.jsx";
-import { SearchInput, Form, SearchWrapper, NetworkWrapper, ProfileImg, RequestImg } from "./Network.styles";
-import { DotDiv, Loader } from "../Dashboard/Dashboard.styles.jsx";
+import {
+  SearchInput,
+  Form,
+  SearchWrapper,
+  NetworkWrapper,
+  ProfileImg,
+  ProfileAvatar,
+  ProfileImageDiv,
+  RequestImg,
+  Card,
+  UserInfoText,
+  TextWrapper,
+  UserName
+} from "./Network.styles";
+import avatar from "../../assets/images/avatar.svg";import { DotDiv, Loader } from "../Dashboard/Dashboard.styles.jsx";
 
 import queryHelper from "../../utils/queryHelper";
 
@@ -29,7 +42,7 @@ function NetworkPage() {
   }, []);
   console.log(networkData ? "bitch we won" : "");
 
-  return (
+ return (
     <>
       <div>
         <RequestImg alt="request" src={requestIcon} />
@@ -37,7 +50,14 @@ function NetworkPage() {
           <ProfileImg alt="profile" src={profileIcon} />
         </Link>
       </div>
-      {networkData ? (
+      {!networkData || networkData === "" || networkData === undefined ? (
+        <>
+          <Loader>
+            <h3>Finding your connections</h3>
+          </Loader>
+          <DotDiv></DotDiv>
+        </>
+      ) : (
         <NetworkWrapper>
           <SearchWrapper>
             <Form onSubmit="">
@@ -50,18 +70,24 @@ function NetworkPage() {
               />
             </Form>
           </SearchWrapper>
+          {networkData.users.map((user) => {
+            return (
+              <Card>
+                <ProfileImageDiv>
+                  <ProfileAvatar alt="user avatar" src={avatar} />
+                </ProfileImageDiv>
+                <TextWrapper>
+                  <UserName>{user.full_name}</UserName>
+                  <UserInfoText>{user.speciality.speciality || "Has not specialised yet"}</UserInfoText>
+                  <UserInfoText>{user.workplace ? user.workplace.workplace : "Has not started working"}</UserInfoText>
+                </TextWrapper>
+              </Card>
+            );
+          })}
           <Navigation />
         </NetworkWrapper>
-      ) : (
-        <>
-          <Loader>
-            <h3>Finding your connections</h3>
-          </Loader>
-          <DotDiv></DotDiv>
-        </>
       )}
     </>
   );
 }
-
 export default NetworkPage;
