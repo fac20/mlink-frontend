@@ -5,6 +5,7 @@ import { GetStartedBtn } from "../Onboarding/Onboarding.styles.jsx";
 export const Nav = styled.nav`
   display: flex;
   align-self: center;
+  justify-self: center;
   position: fixed;
   bottom: 10px;
   max-width: 100%;

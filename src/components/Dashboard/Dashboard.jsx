@@ -39,7 +39,7 @@ export default function Dashboard() {
   console.log(typeof totalCount);
 
   return (
-  <>
+    <>
       <div>
         <RequestImg alt="request" src={requestIcon} />
         <Link to="/profile">
@@ -73,8 +73,8 @@ export default function Dashboard() {
               <Count>{totalCount ? totalCount.sameCity.length : ""}</Count>
             </CountContainer>
           </RowSection>
+          <Navigation />
         </ColumnSection>
-        <Navigation />
       </DashboardBody>
     </>
   );

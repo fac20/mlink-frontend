@@ -17,12 +17,13 @@ import {
   TextWrapper,
   UserName
 } from "./Network.styles";
-import avatar from "../../assets/images/avatar.svg";import { DotDiv, Loader } from "../Dashboard/Dashboard.styles.jsx";
+import avatar from "../../assets/images/avatar.svg";
+import { DotDiv, Loader } from "../Dashboard/Dashboard.styles.jsx";
 
 import queryHelper from "../../utils/queryHelper";
 
 function NetworkPage() {
-  const [networkData, setNetworkData] = React.useState([]);
+  const [networkData, setNetworkData] = React.useState();
 
   React.useEffect(() => {
     const networkQuery = `
@@ -40,9 +41,9 @@ function NetworkPage() {
         `;
     queryHelper(networkQuery, {}, "", "", setNetworkData);
   }, []);
-  console.log(networkData ? "bitch we won" : "");
+  console.log(networkData);
 
- return (
+  return (
     <>
       <div>
         <RequestImg alt="request" src={requestIcon} />
