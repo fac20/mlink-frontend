@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import profileIcon from "../../assets/images/profileicon.svg";
-import requestIcon from "../../assets/images/requesticon.svg";
-import Navigation from "../Navigation/Navigation.jsx";
+
 import {
   SearchInput,
   Form,
@@ -17,12 +15,14 @@ import {
   TextWrapper,
   UserName
 } from "./Network.styles";
+import profileIcon from "../../assets/images/profileicon.svg";
+import requestIcon from "../../assets/images/requesticon.svg";
+import Navigation from "../Navigation/Navigation.jsx";
 import avatar from "../../assets/images/avatar.svg";
 import { DotDiv, Loader } from "../Dashboard/Dashboard.styles.jsx";
-
 import queryHelper from "../../utils/queryHelper";
 
-function NetworkPage() {
+export default function NetworkPage() {
   const [networkData, setNetworkData] = React.useState();
 
   React.useEffect(() => {
@@ -41,8 +41,8 @@ function NetworkPage() {
         `;
     queryHelper(networkQuery, {}, "", "", setNetworkData);
   }, []);
-  console.log(networkData);
 
+  const noNetworkData = !networkData || networkData === "" || networkData === undefined;
   return (
     <>
       <div>
@@ -51,14 +51,15 @@ function NetworkPage() {
           <ProfileImg alt="profile" src={profileIcon} />
         </Link>
       </div>
-      {!networkData || networkData === "" || networkData === undefined ? (
+      {noNetworkData && (
         <>
           <Loader>
             <h3>Finding your connections</h3>
           </Loader>
           <DotDiv></DotDiv>
         </>
-      ) : (
+      )}
+      {!noNetworkData && (
         <NetworkWrapper>
           <SearchWrapper>
             <Form onSubmit="">
@@ -71,24 +72,25 @@ function NetworkPage() {
               />
             </Form>
           </SearchWrapper>
-          {networkData.users.map((user) => {
-            return (
-              <Card>
-                <ProfileImageDiv>
-                  <ProfileAvatar alt="user avatar" src={avatar} />
-                </ProfileImageDiv>
-                <TextWrapper>
-                  <UserName>{user.full_name}</UserName>
-                  <UserInfoText>{user.speciality.speciality || "Has not specialised yet"}</UserInfoText>
-                  <UserInfoText>{user.workplace ? user.workplace.workplace : "Has not started working"}</UserInfoText>
-                </TextWrapper>
-              </Card>
-            );
-          })}
+          {networkData.users.map(getUser)}
           <Navigation />
         </NetworkWrapper>
       )}
     </>
   );
+
+  function getUser(user) {
+    return (
+      <Card>
+        <ProfileImageDiv>
+          <ProfileAvatar alt="user avatar" src={avatar} />
+        </ProfileImageDiv>
+        <TextWrapper>
+          <UserName>{user.full_name}</UserName>
+          <UserInfoText>{user.speciality.speciality || "Has not specialised yet"}</UserInfoText>
+          <UserInfoText>{user.workplace ? user.workplace.workplace : "Has not started working"}</UserInfoText>
+        </TextWrapper>
+      </Card>
+    );
+  }
 }
-export default NetworkPage;

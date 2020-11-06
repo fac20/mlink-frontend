@@ -6,7 +6,7 @@ import landingHero from "./../../assets/images/landingHero.svg";
 import logo from "../../assets/images/logo2.png";
 import Auth0LoginButton from "../Registration/Auth0Login";
 
-function Onboarding() {
+export default function Onboarding() {
   return (
     <PageWrapper>
       <Logo src={logo} alt="mlink logo" />
@@ -25,4 +25,9 @@ function Onboarding() {
   );
 }
 
-export default Onboarding;
+export const Logo = styled.img`
+  position: absolute;
+  left: 1vw;
+  top: 1vw;
+  width: 60px;
+`;
